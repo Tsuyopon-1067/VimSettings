@@ -1,0 +1,319 @@
+include c.snip
+
+# #include <...>
+snippet inc
+options     head
+alias   #inc, #include
+    #include <${1:iostream}>${0}
+# #include "..."
+snippet inc2
+options     head
+alias   #inc2, #include2
+    #include "${1}"${0}
+
+snippet     template
+abbr        template <T>
+    template<typename ${1:T}> ${0}
+
+snippet     class
+options     head
+abbr        class {}
+    class ${1:#:name} {
+        ${2}
+    public:
+        $1(${3});
+    };
+    $1::$1($3) {
+        ${0:TARGET}
+    }
+
+snippet     class-without-constructor
+options     head
+abbr        class {}
+    class ${1:#:name} {
+        ${2}
+    };
+
+snippet     try
+options     head
+abbr        try catch
+    try {
+        ${1:#:TARGET}
+    } catch (${2:...}) {
+        ${3}
+    }
+
+# range based for ( C++11 feature )
+snippet     for_CPP11
+options     head
+abbr        for (:) {}
+    for (${1:auto&& }${2:var} : ${3:container}) {
+        ${0:TARGET}
+    }
+
+# lambda expression ( C++11 feature )
+snippet     lambda
+abbr        [](){}
+    [${1}](${2})${3}{ ${4:TARGET} }${0:;}
+
+# scoped enumeration ( C++11 feature )
+snippet     enum_scoped
+options     head
+abbr        enum struct {};
+    enum struct ${1:#:name} { ${2:#:TARGET} };
+
+# static assert ( C++11 feature )
+snippet     static_assert
+abbr        static_assert(,"")
+    static_assert( ${1}, "${2}" );${0}
+
+snippet     namespace
+abbr        namespace {}
+options     head
+    namespace ${1:#:name} {
+        ${0:TARGET}
+    } // namespace $1
+
+snippet     static_cast
+abbr        static_cast<>()
+    static_cast<${1}>(${2})${0}
+
+snippet     reinterpret_cast
+abbr        reinterpret_cast<>()
+    reinterpret_cast<${1}>(${2})${0}
+
+snippet     const_cast
+abbr        const_cast<>()
+    const_cast<${1}>(${2})${0}
+
+snippet     dynamic_cast
+abbr        dynamic_cast<>()
+    dynamic_cast<${1}>(${2})${0}
+
+snippet     helloworld
+abbr        #include<iostream> int main...
+    #include <iostream>
+
+    int main(int argc, char* argv[])
+    {
+        std::cout << "hello, world!" << std::endl;
+        return 0;
+    }
+
+snippet     p
+options     head
+  std::cout << ${0:TARGET} << std::endl;
+
+snippet     atutil
+options     head
+    #define _GLIBCXX_DEBUG
+    #define rep(i, n) for (int i = 0; i < (int)(n); i++)
+    #define reps(s, i, n) for (int i = (s); i < (int)(n); i++)
+    ${0:}
+    
+snippet     atmain
+options     head
+    #include <bits/stdc++.h>
+    using namespace std;
+
+    int main() {
+        ${0:}; return 0;
+    }
+
+
+snippet     atmainvv
+options     head
+    #include <bits/stdc++.h>
+    using namespace std;
+
+    int main() {
+        int ${1:x}, ${2:y};
+        cin >> $1 >> $2;
+        return 0;
+    }
+
+snippet     atmainv
+options     head
+    #include <bits/stdc++.h>
+    using namespace std;
+
+    int main() {
+        int ${1:n};
+        cin >> $1;
+        return 0;
+    }
+
+snippet     atmainvvv
+options     head
+    #include <bits/stdc++.h>
+    using namespace std;
+
+    int main() {
+        int ${1:a}, ${2:b}, ${3:c};
+        cin >> $1 >> $2 >> $3;
+        return 0;
+    }
+
+snippet     atmainvvvv
+options     head
+    #include <bits/stdc++.h>
+    using namespace std;
+
+    int main() {
+        int ${1:a}, ${2:b}, ${3:c}, ${4:d};
+        cin >> $1 >> $2 >> $3 >> $4;
+        return 0;
+    }
+
+snippet     atmains
+options     head
+    #include <bits/stdc++.h>
+    using namespace std;
+
+    int main() {
+        string ${1:s};
+        cin >> $1;
+        return 0;
+    }
+
+snippet     vector
+options word
+    vector<${1}> ${2}(${3});${0:}
+
+snippet     wvector
+options word
+    vector<vector<int>> ${1:NAME}(${2:NUM}, vector<int>(${3:NAM}));${0:}
+snippet     graphv
+options word
+    vector<vector<int>> ${1:NAME};${0:}
+
+snippet     sort
+    sort(${1:NAME}.begin(), $1.end());${0:}
+
+snippet     reverse
+    reverse(${0:NAME}.begin(), $0.end());
+
+snippet     defrep
+options     head
+    #define rep(i, n) for (int i = 0; i < (int)(n); i++)
+
+snippet     for
+    for(int ${1:i} = 0; ${2:i} < ${3:n}; ${4:i}++) {
+        ${5:TARGET}
+    }
+
+snippet     fore
+    for(int ${1:i} = ${2:}; ${3:i} <= ${4:n}; ${5:i}++) {
+        ${6:TARGET}
+    }
+
+snippet     min3
+options     head
+    int min3(int a, int b, int c) {
+        a = a < b ? a : b;
+        a = a < c ? a : c;
+        return a;
+    }
+
+snippet     atmod
+options     head
+    #define MOD 1000000007
+
+snippet     pow2
+options     head
+    int pow2(int n) {
+        int res = 1;
+        while(n--) res *= 2;
+        return res;
+    }
+
+
+snippet     pp
+options     head
+    int pp(int n) {
+        return n*n;
+    }
+
+snippet     digitSum
+options     head
+    int digitSum(int n) {
+        int res = 0;
+        while(n > 0){
+            res += n % 10;
+            n /= 10;
+        }
+        return res;
+    }
+
+snippet     cout
+    cout << ${0:TARGET} << endl;
+
+snippet     aryin
+    for(int i = 0; i < ${1:n}; i++) cin >> ${2:a}[i];${3:}
+
+snippet     aryout
+    for(int i = 0; i < ${1:n}; i++) printf("%${2:a}", ${3:a}[i]);${4:}
+
+snippet     arysum
+    int ${1:sum} = 0;
+    for(int i = 0; i < n; i++) $1 += ${2:a}[i];${0:}
+
+snippet     set
+    set<${1:Type}>${2:Name};
+
+snippet     setshow
+    for(int x: ${1:Name}) cout << x;
+
+snippet     boolisinsection
+alias       binsect
+    bool isInSection(int a, int b, int x){
+        if(a <= x && x <= b) return true;
+        else return false;
+    }
+
+snippet     isinsection
+alias insect
+    isInSection(${1:a}, ${2:b}, ${3:x})
+
+snippet     rep
+alias rep
+    rep(${1:i}, ${2:n})${0}
+
+snippet     reps
+alias reps
+    reps(${1:1}, ${2:i}, ${3:n})${0}
+
+snippet     pbk
+alias pbk
+options word
+    push_back(${1:n});${0}
+
+snippet     ansy
+alias ansy
+options word
+    ans = "${1:Yes}"; ${0}
+
+snippet     ansn
+alias ansn
+options word
+    ans = "${1:No}"; ${0}
+
+
+snippet     isprime
+alias isprime
+    vector<bool> isPrime(int n) {
+        vector<bool> res(n+1, true);
+        res[0] = false;
+        res[1] = false;
+        for (int i = 2; i <= n; i++) {
+            if (res[i] == false) continue;
+            int jn = n / i;
+            for (int j = 2; j <= jn; j++) res[i*j] = false;
+        }
+        return res;
+    }
+    ${0:}
+
+snippet     getprime
+alias   getprime
+    vector<bool> ${1:} = isPrime(${2:});${0:}

@@ -1,0 +1,70 @@
+# deoplete
+#:call dein#update()
+
+[[plugins]]
+repo = 'Shougo/deoplete.nvim'
+hook_add = 'let g:deoplete#enable_at_startup = 1'
+
+#deoplete on vim requires plugin 1/2
+[[plugins]]
+repo = 'roxma/nvim-yarp'
+
+#deoplete on vim requires plugin 2/2
+[[plugins]]
+repo = 'roxma/vim-hug-neovim-rpc'
+
+#deoplete
+[[plugins]]
+repo = 'Shougo/neco-vim'
+[[plugins]]
+repo = 'Shougo/neco-syntax'
+[[plugins]]
+repo = 'ujihisa/neco-look'
+
+# ddc.vim
+#[[plugins]]
+#repo = 'Shougo/ddc.vim'
+#[[plugins]]
+#repo = 'vim-denops/denops.vim'
+#[[plugins]]
+#repo = 'Shougo/ddc-around'
+#[[plugins]]
+#repo = 'Shougo/ddc-matcher_head'
+#[[plugins]]
+#repo = 'Shougo/ddc-sorter_rank'
+
+# neosnippet
+[[plugins]]
+repo = 'Shougo/neosnippet.vim'
+[[plugins]]
+repo = 'Shougo/neosnippet-snippets'
+
+# qauickrun
+[[plugins]]
+repo = 'thinca/vim-quickrun'
+
+# Lexima カッコ補完
+[[plugins]]
+repo = 'cohama/lexima.vim'
+
+
+# Linter チェック警告
+[[plugins]]
+repo = 'dense-analysis/ale'
+
+# Linter 置換ハイライト
+[[plugins]]
+repo = 'markonm/traces.vim'
+[[plugins]]
+repo = 'w0ng/vim-hybrid'
+
+#LaTeX
+[[plugins]]
+repo = 'lervag/vimtex'
+on_ft=['tex']
+hook_source='''
+  let g:vimtex_view_general_viewer = 'displayline'
+  let g:vimtex_view_general_options = '-r @line @pdf @tex'
+'''
+
+#neoterm
