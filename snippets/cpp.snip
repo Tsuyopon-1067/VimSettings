@@ -106,9 +106,13 @@ options     head
 
 snippet     atutil
 options     head
+    #define rep(i, n) for (int i = 0; i < (int)(n); ++i)
+    #define reps(s, i, n) for (int i = (s); i < (int)(n); ++i)
+    ${0:}
+
+snippet     vecdebug
+options     head
     #define _GLIBCXX_DEBUG
-    #define rep(i, n) for (int i = 0; i < (int)(n); i++)
-    #define reps(s, i, n) for (int i = (s); i < (int)(n); i++)
     ${0:}
     
 snippet     atmain
@@ -117,7 +121,7 @@ options     head
     using namespace std;
 
     int main() {
-        ${0:}; return 0;
+        return 0;${0:}
     }
 
 
@@ -128,8 +132,8 @@ options     head
 
     int main() {
         int ${1:x}, ${2:y};
-        cin >> $1 >> $2;
-        return 0;
+        cin >> $1 >> $2; 
+        return 0;${0:}
     }
 
 snippet     atmainv
@@ -140,7 +144,7 @@ options     head
     int main() {
         int ${1:n};
         cin >> $1;
-        return 0;
+        return 0;${0:}
     }
 
 snippet     atmainvvv
@@ -151,7 +155,7 @@ options     head
     int main() {
         int ${1:a}, ${2:b}, ${3:c};
         cin >> $1 >> $2 >> $3;
-        return 0;
+        return 0;${0:}
     }
 
 snippet     atmainvvvv
@@ -162,7 +166,7 @@ options     head
     int main() {
         int ${1:a}, ${2:b}, ${3:c}, ${4:d};
         cin >> $1 >> $2 >> $3 >> $4;
-        return 0;
+        return 0;${0:}
     }
 
 snippet     atmains
@@ -173,7 +177,7 @@ options     head
     int main() {
         string ${1:s};
         cin >> $1;
-        return 0;
+        return 0;${0:}
     }
 
 snippet     vector
@@ -182,7 +186,7 @@ options word
 
 snippet     wvector
 options word
-    vector<vector<int>> ${1:NAME}(${2:NUM}, vector<int>(${3:NAM}));${0:}
+    vector<vector<${1:int}>> ${2:NAME}(${3:n}, vector<$1>(${4:n}));${0:}
 snippet     graphv
 options word
     vector<vector<int>> ${1:NAME};${0:}
@@ -191,11 +195,14 @@ snippet     sort
     sort(${1:NAME}.begin(), $1.end());${0:}
 
 snippet     reverse
-    reverse(${0:NAME}.begin(), $0.end());
+    reverse(${1:NAME}.begin(), $1.end());${0:}
+
+snippet     unique
+    unique(${1:NAME}.begin(), $1.end());${0:}
 
 snippet     defrep
 options     head
-    #define rep(i, n) for (int i = 0; i < (int)(n); i++)
+    #define rep(i, n) for (int i = 0; i < (int)(n); ++i)
 
 snippet     for
     for(int ${1:i} = 0; ${2:i} < ${3:n}; ${4:i}++) {
@@ -249,14 +256,14 @@ snippet     cout
     cout << ${0:TARGET} << endl;
 
 snippet     aryin
-    for(int i = 0; i < ${1:n}; i++) cin >> ${2:a}[i];${3:}
+    for(int i = 0; i < ${1:n}; ++i) cin >> ${2:a}[i];${3:}
 
 snippet     aryout
-    for(int i = 0; i < ${1:n}; i++) printf("%${2:a}", ${3:a}[i]);${4:}
+    for(auto ${1:x} : ${2:a}) printf("%${3:d} ", x);${0:}
 
 snippet     arysum
     int ${1:sum} = 0;
-    for(int i = 0; i < n; i++) $1 += ${2:a}[i];${0:}
+    for(int i = 0; i < n; ++i) $1 += ${2:a}[i];${0:}
 
 snippet     set
     set<${1:Type}>${2:Name};
@@ -299,13 +306,13 @@ options word
     ans = "${1:No}"; ${0}
 
 
-snippet     isprime
-alias isprime
-    vector<bool> isPrime(int n) {
+snippet     prime_list
+alias primelist
+    vector<bool> prime_list(int n) {
         vector<bool> res(n+1, true);
         res[0] = false;
         res[1] = false;
-        for (int i = 2; i <= n; i++) {
+        for (int i = 2; i <= n; ++i) {
             if (res[i] == false) continue;
             int jn = n / i;
             for (int j = 2; j <= jn; j++) res[i*j] = false;
@@ -316,4 +323,12 @@ alias isprime
 
 snippet     getprime
 alias   getprime
-    vector<bool> ${1:} = isPrime(${2:});${0:}
+    vector<bool> ${1:} = prime_list(${2:});${0:}
+
+snippet     arymax
+    int ${1:max} = 0;
+    for (int ${2:i} = 0; $2 < ${3:n}; $2++) $1 = max($1, ${4:a}[$2]);
+snippet     que
+    queue<${1:int}> ${2:que};${0:}
+snippet     pque
+    priority_queue<${1:int}, vector<$1>, greater<$1>> ${2:pq};${0:}
