@@ -1,18 +1,5 @@
 source go.vim
 
-snippet     helloworld
-abbr        package main\nimport fmt...
-options     head
-  package main
-
-  import (
-    "fmt"
-  )
-
-  func main() {
-    fmt.Printf("Hello, world\n")
-  }
-
 snippet     func
 abbr        func ...() { ... }
 alias fn
@@ -56,12 +43,6 @@ snippet     interface
 alias ti
 options     head
   type ${1} interface {
-    ${0:TARGET}
-  }
-
-snippet     for
-options     head
-  for ${1} {
     ${0:TARGET}
   }
 
@@ -145,20 +126,6 @@ options     head
       })
   }
 
-snippet     fabc
-abbr        package main\nimport fmt...
-options     head
-  package main
-
-  import (
-    "fmt"
-  )
-
-  func main() {
-    var ${1}, ${2}, ${3} int
-    fmt.Scanf("%d %d %d", &${1}, &${2}, &${3})
-  }
-
 snippet     fbuf
 abbr        package main\nimport "bufio"...
 options     head
@@ -188,7 +155,51 @@ options     head
 snippet     for
 abbr        pfor i := 0; i < n; i++{...
 options     head
-    for i := 0; i < n; i++{
-        ${1:Sentence}
+    for i := 0; i < ${1:n}; i++ {
+        ${0:Sentence}
     }
 
+snippet     atmain
+options     head
+    package main
+
+    import (
+        "fmt"
+    )
+
+    func main() {
+        ${0:}
+    }
+
+snippet     atmainv
+options     head
+    package main
+
+    import (
+        "fmt"
+    )
+
+    func main() {
+        var ${1:n} ${2:int64}
+        fmt.Scanf("%d", &$1)
+        ${0:}
+    }
+
+snippet     atmainvv
+options     head
+    package main
+
+    import (
+        "fmt"
+    )
+
+    func main() {
+        var ${1:x}, ${2:y} ${3:int64}
+        fmt.Scanf("%d", &$1)
+        fmt.Scanf("%d", &$2)
+        ${0:}
+    }
+
+snippet     scanf
+options     head
+    fmt.Scanf("%${1:d}", &${2:n})${0:}
