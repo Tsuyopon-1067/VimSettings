@@ -283,8 +283,14 @@ options     head
     import java.util.Scanner;
 
     class `expand('%:p:t:r')` {
-        public static void main(String[] args){
+        public static void main(String[] args) {
             Scanner sc = new Scanner(System.in);
             ${2:}
         }
     }
+
+snippet     aryin
+    for(int i = 0; i < ${1:n}; ++i) ${2:a}[i] = sc.nextInt();${0:}
+
+snippet     aryout
+    for(${1:x} : ${2:a}) System.out.printf("%${3:d} ", x);${0:}

@@ -161,3 +161,12 @@ abbr        removeInputHook...pdb
 snippet     ipy
 abbr        import ipython..
 	from IPython import embed; embed()
+
+snippet     sinput
+	${1:s} = input()
+snippet     iinput
+	${1:n} = int(input())
+snippet     finput
+	${1:f} = float(input())
+snippet     printi
+	print(int(${1:n}))${0:}

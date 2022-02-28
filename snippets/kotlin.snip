@@ -1,0 +1,29 @@
+snippet     main
+    func main() {
+        ${0:}
+    }
+
+snippet     atmainv
+    func main() {
+        var ${1:n} = readLine()!!.toInt()
+        ${0:}
+    }
+snippet     atmainvv
+    func main() {
+        val (${1:x}, ${2:y}) = readLine()!!.split(" ").map{ it.toInt() }
+        ${0:}
+    }
+snippet     atmainvvv
+    func main() {
+        val (${1:x}, ${2:y}, ${3:z}) = readLine()!!.split(" ").map{ it.toInt() }
+        ${0:}
+    }
+snippet     atmainvvvv
+    func main() {
+        val (${1:a}, ${2:b}, ${3:c}, ${4:d}) = readLine()!!.split(" ").map{ it.toInt() }
+        ${0:}
+    }
+snippet class
+    class ${1} ${2:#:extends_or_implements}{
+        ${0:TARGET}
+    }

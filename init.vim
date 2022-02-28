@@ -210,8 +210,7 @@ let g:tex_conceal=''
 "--------------------------------------------------------------------------
 " ターミナル
 
-command! -nargs=* F split | wincmd j | resize 20 | terminal <args>
-command! -nargs=* T split | wincmd j | resize 20 | terminal <args>
+command! -nargs=* T w | split | wincmd j | resize 20 | terminal <args>
 tnoremap <c-t><c-t> <C-¥><C-n><C-w><C-w>
 
 "--------------------------------------------------------------------------
@@ -222,3 +221,8 @@ set shiftwidth=4
 
 
 filetype plugin indent on
+
+
+"--------------------------------------------------------------------------
+" 言語
+autocmd BufReadPost *.kt setlocal filetype=kotlin

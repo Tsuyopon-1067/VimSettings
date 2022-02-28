@@ -43,14 +43,6 @@ abbr        try catch
         ${3}
     }
 
-# range based for ( C++11 feature )
-snippet     for_CPP11
-options     head
-abbr        for (:) {}
-    for (${1:auto&& }${2:var} : ${3:container}) {
-        ${0:TARGET}
-    }
-
 # lambda expression ( C++11 feature )
 snippet     lambda
 abbr        [](){}
@@ -205,13 +197,13 @@ options     head
     #define rep(i, n) for (int i = 0; i < (int)(n); ++i)
 
 snippet     for
-    for(int ${1:i} = 0; ${2:i} < ${3:n}; ${4:i}++) {
-        ${5:TARGET}
+    for(int ${1:i} = 0; $1 < ${2:n}; ++$1) {
+        ${0:TARGET}
     }
 
 snippet     fore
-    for(int ${1:i} = ${2:}; ${3:i} <= ${4:n}; ${5:i}++) {
-        ${6:TARGET}
+    for(int ${1:i} = 0; $1 <= ${2:n}; ++$1) {
+        ${0:TARGET}
     }
 
 snippet     min3
