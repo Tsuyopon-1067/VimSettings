@@ -306,7 +306,8 @@ snippet     aryin
     for(int i = 0; i < ${1:n}; ++i) cin >> ${2:a}[i];${3:}
 
 snippet     aryout
-    for(auto ${1:x} : ${2:a}) printf("%${3:d} ", x);${0:}
+    for(auto ${1:x} : ${2:a}) printf("%${3:d} ", x);
+    printf("\n");${0:}
 
 snippet     arysum
     int ${1:sum} = 0;
