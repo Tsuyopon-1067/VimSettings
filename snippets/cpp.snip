@@ -101,8 +101,12 @@ options     head
     #define rep(i, n) for (int i = 0; i < (int)(n); ++i)
     #define reps(i, s, n) for (int i = (s); i < (int)(n); ++i)
     #define rrep(i, n) for (int i = (int)(n-1); i >= 0; --i)
+    #define MOD 1000000007
+    #define INF 2000000000
+    #define INFL 1000000000000000000
     template <typename T> bool chmin(T &a, const T& b) { if (a > b) { a = b; return true; } return false; }
     template <typename T> bool chmax(T &a, const T& b) { if (a < b) { a = b; return true; } return false; }
+    template <typename T> int count_digit(T n) { int res = 0; while (n > 0) { ++res; n /= 10; } return res; }
     typedef long long ll;
     ${0:}
 
@@ -116,9 +120,15 @@ options     head
     #include <bits/stdc++.h>
     using namespace std;
 
-    int main() {
-        return 0;${0:}
+    int main() {${0:}
+        return 0;
     }
+snippet     rtn
+options word
+    return 0;
+snippet     tostr
+options word
+    to_string(${1:n})${0:}
 
 
 snippet     atmainvv
@@ -176,47 +186,69 @@ options     head
         return 0;
     }
 snippet     scani
+options word
     int ${1:n};
-    scanf("%d", &$1);${0:}
+    cin >> $1;${0:}
 snippet     scanii
+options word
     int ${1:x}, ${2:y};
-    scanf("%d %d", &$1, &$2);${0:}
+    cin >> $1 >> $2;${0:}
 snippet     scaniii
+options word
     int ${1:a}, ${2:b}, ${3:c};
-    scanf("%d %d %d", &$1, &$2, &$3);${0:}
+    cin >> $1 >> $2 >> $3;${0:}
 snippet     scaniiii
+options word
     int ${1:a}, ${2:b}, ${3:c}, ${4:d};
-    scanf("%d %d %d %d", &$1, &$2, &$3, &$4);${0:}
+    cin >> $1 >> $2 >> $3 >> $4;${0:}
+snippet     scaniiiii
+options word
+    int ${1:a}, ${2:b}, ${3:c}, ${4:d}, ${5:e};
+    cin >> $1 >> $2 >> $3 >> $4 >> $5;${0:}
+snippet     scaniiiiii
+options word
+    int ${1:a}, ${2:b}, ${3:c}, ${4:d}, ${5:e}, ${6:e};
+    cin >> $1 >> $2 >> $3 >> $4 >> $5 >> $6;${0:}
 snippet     scanl
+options word
     long long ${1:n};
-    scanf("%lld", &$1);${0:}
+    cin >> $1;${0:}
 snippet     scanll
+options word
     long long ${1:x}, ${2:y};
-    scanf("%lld %lld", &$1, &$2);${0:}
+    cin >> $1 >> $2;${0:}
 snippet     scanlll
+options word
     long long ${1:a}, ${2:b}, ${3:c};
-    scanf("%lld %lld %lld", &$1, &$2, &$3);${0:}
+    cin >> $1 >> $2 >> $3;${0:}
 snippet     scanllll
+options word
     long long ${1:a}, ${2:b}, ${3:c}, ${4:d};
-    scanf("%lld %lld %lld %lld", &$1, &$2, &$3, &$4);${0:}
+    cin >> $1 >> $2 >> $3 >> $4;${0:}
 snippet     scand
-    int ${1:n};
-    scanf("%lf", &$1);${0:}
+options word
+    double ${1:n};
+    cin >> $1;${0:}
 snippet     scandd
-    int ${1:x}, ${2:y};
-    scanf("%lf %lf", &$1, &$2);${0:}
+options word
+    double ${1:x}, ${2:y};
+    cin >> $1 >> $2;${0:}
 snippet     scanddd
-    int ${1:a}, ${2:b}, ${3:c};
-    scanf("%lf %lf %lf", &$1, &$2, &$3);${0:}
+options word
+    double ${1:a}, ${2:b}, ${3:c};
+    cin >> $1 >> $2 >> $3;${0:}
 snippet     scandddd
-    int ${1:a}, ${2:b}, ${3:c}, ${4:d};
-    scanf("%lf %lf %lf %lf", &$1, &$2, &$3, &$4);${0:}
+options word
+    double ${1:a}, ${2:b}, ${3:c}, ${4:d};
+    cin >> $1 >> $2 >> $3 >> $4;${0:}
 snippet     scans
-    int ${1:s};
-    scanf("%s", &$1);${0:}
+options word
+    string ${1:s};
+    cin >> $1;${0:}
 snippet     scanss
-    int ${1:s}, ${2:t};
-    scanf("%s %s", &$1, &$2);${0:}
+options word
+    string ${1:s}, ${2:t};
+    cin >> $1 >> $2;${0:}
 
 options word
     vector<${1:int}> ${2}(${3:n});${0:}
@@ -245,10 +277,6 @@ snippet     reverse
 snippet     unique
     unique(${1:a}.begin(), $1.end());${0:}
 
-snippet     defrep
-options     head
-    #define rep(i, n) for (int i = 0; i < (int)(n); ++i)
-
 snippet     for
     for(int ${1:i} = 0; $1 < ${2:n}; ++$1) {
         ${0:TARGET}
@@ -257,6 +285,18 @@ snippet     for
 snippet     fore
     for(int ${1:i} = 0; $1 <= ${2:n}; ++$1) {
         ${0:TARGET}
+    }
+snippet     rep
+    rep (${1:i}, ${2:n}) {
+        ${0:}
+    }
+snippet     reps
+    reps (${1:i}, ${2:1}, ${3:n}) {
+        ${0:}
+    }
+snippet     rrep
+    rrep (${1:i}, ${2:n}){
+        ${0:}
     }
 
 snippet     min3
@@ -306,7 +346,7 @@ snippet     aryin
     for(int i = 0; i < ${1:n}; ++i) cin >> ${2:a}[i];${0:}
 
 snippet     aryout
-    for(auto ${1:x} : ${2:a}) cout << $1 << " " << endl;${0:}
+    for(auto ${1:x} : ${2:a}) cout << $1 << " ";
     cout << endl;${0:}
 
 snippet     arysum
@@ -317,6 +357,14 @@ snippet     set
     set<${1:int}>${2:st};${0:}
 snippet     map
     map<${1:int}, ${2:int}>${3:mp};${0:}
+snippet     pair
+    pair<${1:int}, ${2:int}>${3:pr};${0:}
+snippet     ff
+options word
+    first
+snippet     ss
+options word
+    second
 
 snippet     setshow
     for(int x: ${1:Name}) cout << x;
@@ -331,14 +379,6 @@ alias       binsect
 snippet     isinsection
 alias insect
     isInSection(${1:a}, ${2:b}, ${3:x})
-
-snippet     rep
-alias rep
-    rep(${1:i}, ${2:n})${0}
-
-snippet     reps
-alias reps
-    reps(${1:1}, ${2:i}, ${3:n})${0}
 
 snippet     pbk
 alias pbk
