@@ -343,7 +343,7 @@ snippet     fcout
     cout << setprecision(${1:n}) << ${2:TARGET} << endl;${0:}
 
 snippet     aryin
-    for(int i = 0; i < ${1:n}; ++i) cin >> ${2:a}[i];${0:}
+    for (auto &${1:x} : ${2:a}) cin >> $1;${0:}
 
 snippet     aryout
     for(auto ${1:x} : ${2:a}) cout << $1 << " ";
@@ -410,6 +410,24 @@ alias primelist
         return res;
     }
     ${0:}
+
+snippet     prime_vec
+alias prime_vec
+    vector<int> prime_vec(int n) {
+        vector<bool> lst(n+1, true);
+        lst[0] = false;
+        lst[1] = false;
+        for (int i = 2; i <= n; ++i) {
+            if (lst[i] == false) continue;
+            int jn = n / i;
+            for (int j = 2; j <= jn; j++) lst[i*j] = false;
+        }
+        vector<int> res;
+        for (int i = 2; i <= n; ++i) {
+            if (lst[i]) res.push_back(i);
+        }
+        return res;
+    }
 
 snippet     getprime
 alias   getprime
