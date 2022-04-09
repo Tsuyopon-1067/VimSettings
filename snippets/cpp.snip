@@ -98,9 +98,9 @@ options     head
 
 snippet     atutil
 options     head
-    #define rep(i, n) for (int i = 0; i < (int)(n); ++i)
-    #define reps(i, s, n) for (int i = (s); i < (int)(n); ++i)
-    #define rrep(i, n) for (int i = (int)(n-1); i >= 0; --i)
+    #define rep(i, n) for (ll i = 0; i < (ll)(n); ++i)
+    #define reps(i, s, n) for (ll i = (s); i < (ll)(n); ++i)
+    #define rrep(i, n) for (ll i = (ll)(n-1); i >= 0; --i)
     #define MOD 1000000007
     #define INF 2000000000
     #define INFL 1000000000000000000
@@ -350,12 +350,18 @@ snippet     aryin
     for (auto &${1:x} : ${2:a}) cin >> $1;${0:}
 
 snippet     aryout
-    for(auto ${1:x} : ${2:a}) cout << $1 << " ";
+    for (auto ${1:x} : ${2:a}) cout << $1 << " ";
     cout << endl;${0:}
 
 snippet     arysum
     int ${1:sum} = 0;
-    for(int i = 0; i < n; ++i) $1 += ${2:a}[i];${0:}
+    for (auto x : ${2:a}) $2 += x;${0:}
+
+snippet     aryfind
+    long long idx;
+    for (idx = 0; idx < (long long)${1:a}.size(); ++idx) {
+        if ($1[idx] == ${2:tgt}) break;
+    }${0:}
 
 snippet     set
     set<${1:int}>${2:st};${0:}
@@ -375,7 +381,7 @@ options word
     second
 
 snippet     setshow
-    for(int x: ${1:Name}) cout << x;
+    for (int x: ${1:Name}) cout << x;
 
 snippet     boolisinsection
 alias       binsect
