@@ -1,0 +1,530 @@
+{
+  "atutil": {
+		"prefix": "atutil",
+		"body": [
+			"#define rep(i, n) for (long long i = 0; i < (long long)(n); ++i)",
+			"#define reps(i, s, n) for (long long i = (long long)(s); i < (long long)(n); ++i)",
+			"#define rrep(i, n) for (long long i = (long long)(n-1); i >= 0; --i)",
+			"#define MOD 1000000007",
+			"#define INF 2000000000",
+			"#define INFL 1000000000000000000",
+			"template <typename T> bool chmin(T &a, const T& b) { if (a > b) { a = b; return true; } return false; }",
+			"template <typename T> bool chmax(T &a, const T& b) { if (a < b) { a = b; return true; } return false; }",
+			"template <typename T> long long count_digit(T n) { long long res = 0; while (n > 0) { ++res; n /= 10; } return res; }",
+			"typedef long long ll;",
+			"$0"
+		],
+		"description": "Inserting utility tools"
+	},
+	"atmain": {
+		"prefix": "atmain",
+		"body": [
+			"#include <bits/stdc++.h>",
+			"using namespace std;",
+			"int main() {",
+			"\t$0",
+			"\treturn 0;",
+			"}"
+		],
+		"description": "main func and include"
+	},
+	"scani": {
+		"prefix": "scani",
+		"body": [
+			"int ${1:n};",
+			"cin >> $1;",
+			"$0"
+		],
+		"description": "Scanning an integer variable"
+	},
+	"scanii": {
+		"prefix": "scanii",
+		"body": [
+			"int ${1:x}, ${2:y};",
+			"cin >> $1 >> $2;",
+			"$0"
+		]
+	},
+	"scaniii": {
+		"prefix": "scaniii",
+		"body": [
+			"int ${1:a}, ${2:b}, ${3:c};",
+			"cin >> $1 >> $2 >> $3;",
+			"$0"
+		]
+	},
+	"scaniiii": {
+		"prefix": "scaniiii",
+		"body": [
+			"int ${1:a}, ${2:b}, ${3:c}, ${4:d};",
+			"cin >> $1 >> $2 >> $3 >> $4;",
+			"$0"
+		]
+	},
+	"scaniiiii": {
+		"prefix": "scaniiiii",
+		"body": [
+			"int ${1:a}, ${2:b}, ${3:c}, ${4:d}, ${5:e};",
+			"cin >> $1 >> $2 >> $3 >> $4 >> $5;",
+			"$0"
+		]
+	},
+	"scaniiiiii": {
+		"prefix": "scaniiiiii",
+		"body": [
+			"int ${1:a}, ${2:b}, ${3:c}, ${4:d}, ${5:e}, ${6:f};",
+			"cin >> $1 >> $2 >> $3 >> $4 >> $5 >> $6;",
+			"$0"
+		]
+	},
+	"scanl": {
+		"prefix": "scanl",
+		"body": [
+			"long long ${1:n};",
+			"cin >> $1;",
+			"$0"
+		]
+	},
+	"scanll": {
+		"prefix": "scanll",
+		"body": [
+			"long long ${1:x}, ${2:y};",
+			"cin >> $1 >> $2;",
+			"$0"
+		]
+	},
+	"scanlll": {
+		"prefix": "scanlll",
+		"body": [
+			"long long ${1:a}, ${2:b}, ${3:c};",
+			"cin >> $1 >> $2 >> $3;",
+			"$0"
+		]
+	},
+	"scanllll": {
+		"prefix": "scanllll",
+		"body": [
+			"long long ${1:a}, ${2:b}, ${3:c}, ${4:d};",
+			"cin >> $1 >> $2 >> $3 >> $4;",
+			"$0"
+		]
+	},
+	"scanlllll": {
+		"prefix": "scanlllll",
+		"body": [
+			"long long ${1:a}, ${2:b}, ${3:c}, ${4:d}, ${5:e};",
+			"cin >> $1 >> $2 >> $3 >> $4 >> $5;",
+			"$0"
+		]
+	},
+	"scanllllll": {
+		"prefix": "scanllllll",
+		"body": [
+			"long long ${1:a}, ${2:b}, ${3:c}, ${4:d}, ${5:e}, ${6:f};",
+			"cin >> $1 >> $2 >> $3 >> $4 >> $5 >> $6;",
+			"$0"
+		]
+	},
+	"scand": {
+		"prefix": "scand",
+		"body": [
+			"double ${1:n};",
+			"cin >> $1;",
+			"$0"
+		]
+	},
+	"scandd": {
+		"prefix": "scandd",
+		"body": [
+			"double ${1:x}, ${2:y};",
+			"cin >> $1 >> $2;",
+			"$0"
+		]
+	},
+	"scanddd": {
+		"prefix": "scanddd",
+		"body": [
+			"double ${1:a}, ${2:b}, ${3:c};",
+			"cin >> $1 >> $2 >> $3;",
+			"$0"
+		]
+	},
+	"scandddd": {
+		"prefix": "scandddd",
+		"body": [
+			"double ${1:a}, ${2:b}, ${3:c}, ${4:d};",
+			"cin >> $1 >> $2 >> $3 >> $4;",
+			"$0"
+		]
+	},
+	"scanddddd": {
+		"prefix": "scanddddd",
+		"body": [
+			"double ${1:a}, ${2:b}, ${3:c}, ${4:d}, ${5:e};",
+			"cin >> $1 >> $2 >> $3 >> $4 >> $5;",
+			"$0"
+		]
+	},
+	"scandddddd": {
+		"prefix": "scandddddd",
+		"body": [
+			"double ${1:a}, ${2:b}, ${3:c}, ${4:d}, ${5:e}, ${6:f};",
+			"cin >> $1 >> $2 >> $3 >> $4 >> $5 >> $6;",
+			"$0"
+		]
+	},
+	"scans": {
+		"prefix": "scans",
+		"body": [
+			"string ${1:n};",
+			"cin >> $1;",
+			"$0"
+		]
+	},
+	"scanss": {
+		"prefix": "scanss",
+		"body": [
+			"string ${1:x}, ${2:y};",
+			"cin >> $1 >> $2;",
+			"$0"
+		]
+	},
+	"scansss": {
+		"prefix": "scansss",
+		"body": [
+			"string ${1:a}, ${2:b}, ${3:c};",
+			"cin >> $1 >> $2 >> $3;",
+			"$0"
+		]
+	},
+	"scanssss": {
+		"prefix": "scanssss",
+		"body": [
+			"string ${1:a}, ${2:b}, ${3:c}, ${4:s};",
+			"cin >> $1 >> $2 >> $3 >> $4;",
+			"$0"
+		]
+	},
+	"scansssss": {
+		"prefix": "scansssss",
+		"body": [
+			"string ${1:a}, ${2:b}, ${3:c}, ${4:s}, ${5:e};",
+			"cin >> $1 >> $2 >> $3 >> $4 >> $5;",
+			"$0"
+		]
+	},
+	"scanssssss": {
+		"prefix": "scanssssss",
+		"body": [
+			"string ${1:a}, ${2:b}, ${3:c}, ${4:s}, ${5:e}, ${6:f};",
+			"cin >> $1 >> $2 >> $3 >> $4 >> $5 >> $6;",
+			"$0"
+		]
+	},
+	"aryin": {
+		"prefix": "aryin",
+		"body": [
+			"for (auto &${1:x} : ${2:a}) cin >> $1;",
+			"${0:}"
+		]
+	},
+	"waryin": {
+		"prefix": "aryinw",
+		"body": [
+			"for (long long ${1:i} = 0, i < ${2:n}, ++i) cin >> ${3:a}[$1] >> ${4:b}[$1];",
+			"${0:}"
+		]
+	},
+	"cou": {
+		"prefix": "cou",
+		"body": [
+			"cout << ${1:} << endl;",
+			"${0:}"
+		]
+	},
+	"cout": {
+		"prefix": "cout",
+		"body": [
+			"cout << ${1:} << endl;",
+			"${0:}"
+		]
+	},
+	"ansy": {
+		"prefix": "ansy",
+		"body": [
+			"ans = \"Yes\";"
+		]
+	},
+	"ansn": {
+		"prefix": "ansn",
+		"body": [
+			"ans = \"No\";"
+		]
+	},
+	"aryout": {
+		"prefix": "aryout",
+		"body": [
+			"for (auto ${1:x} : ${2:a}) cout << $1 << \" \";",
+			"cout << endl;",
+			"${0:}"
+		]
+	},
+	"ansout": {
+		"prefix": "ansout",
+		"body": [
+			"cout << ans << endl;",
+			"${0:}"
+		]
+	},
+	"arymax": {
+		"prefix": "arymax",
+		"body": [
+			"long long ${1:mx} = 0;",
+			"for (auto ${2:x} : ${3:a}) $1 = max($1, $2);",
+			"${0:}"
+		]
+	},
+	"arysum": {
+		"prefix": "arysum",
+		"body": [
+			"long long ${1:sum} = 0;",
+			"for (auto ${2:x} : ${3:a}) $1 += $2;",
+			"${0:}"
+		]
+	},
+	"vector": {
+		"prefix": "vector",
+		"body": [
+			"vector<${1:long long}> ${2:a}(${3:n});",
+			"$0"
+		]
+	},
+	"wvector": {
+		"prefix": "wvector",
+		"body": [
+			"vector<vector<${1:long long}>> ${2:NAME}(${3:n}, vector<$1>(${4:n}));",
+			"$0"
+		]
+	},
+	"graphv": {
+		"prefix": "graphv",
+		"body": [
+			"vector<vector<${1:long long}>> ${2:g}(${3:n}, vector<$1>(${4:n}));",
+			"$0"
+		]
+	},
+	"unique": {
+		"prefix": "unique",
+		"body": [
+			"a.erase(unique(a.begin(), a.end()), a.end());",
+			"$0"
+		]
+	},
+	"list": {
+		"prefix": "list",
+		"body": [
+			"list<${1:long long}> ${2:a};",
+			"$0"
+		]
+	},
+	"sort": {
+		"prefix": "sort",
+		"body": [
+			"sort(${1:a}.begin(), $1.end());",
+			"$0"
+		]
+	},
+	"reverse": {
+		"prefix": "reverse",
+		"body": [
+			"reverse(${1:a}.begin(), $1.end());",
+			"$0"
+		]
+	},
+	"set": {
+		"prefix": "set",
+		"body": [
+			"set<${1:int}>${2:st};",
+			"$0"
+		]
+	},
+	"find": {
+		"prefix": "find",
+		"body": [
+			"{1:st}.find(${2:x}) != $1.end()",
+			"$0"
+		]
+	},
+	"setshow": {
+		"prefix": "setshow",
+		"body": [
+			"for (long long x: ${1:Name}) cout << x << \" \";",
+			"$0"
+		]
+	},
+	"map": {
+		"prefix": "map",
+		"body": [
+			"map<${1:long long}, ${2:long long}>${3:mp};",
+			"$0"
+		]
+	},
+	"pair": {
+		"prefix": "pair",
+		"body": [
+			"pair<${1:long long}, ${2:long long}>${3:pr};${0:};",
+			"$0"
+		]
+	},
+	"ff": {
+		"prefix": "ff",
+		"body": [
+			"first"
+		]
+	},
+	"ss": {
+		"prefix": "ss",
+		"body": [
+			"second"
+		]
+	},
+	"pbk": {
+		"prefix": "pbk",
+		"body": [
+			"${1:a}.push_back(${2:n});",
+			"${0}"
+		]
+	},
+	"que": {
+		"prefix": "que",
+		"body": [
+			"queue<${1:long long}> ${2:que};${0:}",
+			"${0}"
+		]
+	},
+	"pque": {
+		"prefix": "pque",
+		"body": [
+			"priority_queue<${1:long long}, vector<$1>> ${2:pq};${0:}",
+			"${0}"
+		]
+	},
+	"pqueg": {
+		"prefix": "pqueg",
+		"body": [
+			"priority_queue<${1:long long}, vector<$1>, greater<$1>> ${2:pq};${0:}",
+			"${0}"
+		]
+	},
+	"dque": {
+		"prefix": "dque",
+		"body": [
+			"deque<${1:long long}> ${2:dq};",
+			"${0}"
+		]
+	},
+	"for": {
+		"prefix": "for",
+		"body": [
+			"for (long long ${1:i} = 0; $1 < ${2:n}; ++$1) {",
+			"\t${0:}",
+			"}"
+		]
+	},
+	"rep": {
+		"prefix": "rep",
+		"body": [
+			"rep (${1:i}, ${2:n}) ${0:}"
+		]
+	},
+	"reps": {
+		"prefix": "reps",
+		"body": [
+			"reps (${1:i}, ${2:1}, ${3:n}) ${0:}"
+		]
+	},
+	"rrep": {
+		"prefix": "rrep",
+		"body": [
+			"rrep (${1:i}, ${2:n}) ${0:}"
+		]
+	},
+	"fore": {
+		"prefix": "fore",
+		"body": [
+			"for (auto ${1:x} : ${2:a}) {",
+			"\t${0:}",
+			"}"
+		]
+	},
+	"dp": {
+		"prefix": "dp",
+		"body": [
+			"vector<${1:long long}> dp(${2:n}, 0);${0:}",
+			"${0:}"
+		]
+	},
+	"wdp": {
+		"prefix": "wdp",
+		"body": [
+			"vector<vector<${1:long long}>> dp(${2:n}, vector<$1>(${3:n}, 0));${0:}",
+			"${0:}"
+		]
+	},
+	"bfs": {
+		"prefix": "bfs",
+		"body": [
+			"vector<int> ${1:dist}(${2:n}, -1);",
+			"$1[0] = 0;",
+			"queue<int> ${3:gq};",
+			"$3.push(0);",
+			"",
+			"while (!$3.empty()) {",
+			"\tint v = $3.front();",
+			"\t\t$3.pop();",
+			"\t\tfor (auto next_v : g[v]) {",
+			"\t\t\tif ($1[next_v] == -1) continue;",
+			"\t\t\t$3.push(next_v);",
+			"\t\t\t$3[next_v] = $3[v] + 1;",
+			"\t\t}",
+			"\t}",
+			"}",
+			"${0:}"
+		]
+	},
+	"lbound": {
+		"prefix": "lbound",
+		"body": [
+			"auto itr = lower_bound(${1:a}.begin(), $1.end(), ${2:x});",
+		    "int ${3:idx} = distance($1.begin(), itr);${0:}",
+			"${0:}"
+		]
+	},
+	"printf": {
+		"prefix": "printf",
+		"body": [
+            "printf(\"${1:}\", ${2:})",
+			"${0:}"
+		]
+	},
+	"llprime": {
+		"prefix": "llprime",
+		"body": [
+            "vector<long long> llprime(long long n) {",
+            "\tvector<long long> res;",
+            "\tvector<bool> isPrime(n+1, true);",
+            "\tfor (long long i = 2; i*i <= n; ++i) {",
+            "\t\tif (!isPrime[i]) continue;",
+            "\t\tfor (long long j = i*2; j <= n; j += i) {",
+            "\t\t\tisPrime[j] = false;",
+            "\t\t}",
+            "\t}",
+            "\tfor (long long i = 2; i <= n; ++i) {",
+            "\t\tif (isPrime[i]) res.push_back(i);",
+            "\t}",
+            "\treturn res;",
+            "}",
+			"${0:}"
+		]
+	}
+}

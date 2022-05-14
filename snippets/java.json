@@ -1,0 +1,264 @@
+{
+  "atutil": {
+		"prefix": "imps",
+		"body": [
+			"import java.util.Scanner;",
+			"class $TM_FILENAME_BASE {",
+			"\tpublic static void main(String[] args) {",
+			"\t\tScanner sc = new Scanner(System.in);",
+			"\t\t${0:}",
+			"\t}",
+			"}"
+		],
+		"description": "Inserting Main class, main method, Scanner instance"
+	},
+	"scani": {
+		"prefix": "scani",
+		"body": [
+			"int ${1:n} = sc.nextInt();",
+			"${0:}"
+		]
+	},
+	"scanii": {
+		"prefix": "scanii",
+		"body": [
+			"int ${1:x} = sc.nextInt();",
+			"int ${2:y} = sc.nextInt();",
+			"${0:}"
+		]
+	},
+	"scaniii": {
+		"prefix": "scaniii",
+		"body": [
+			"int ${1:a} = sc.nextInt();",
+			"int ${2:b} = sc.nextInt();",
+			"int ${3:c} = sc.nextInt();",
+			"${0:}"
+		]
+	},
+	"scaniiii": {
+		"prefix": "scaniiii",
+		"body": [
+			"int ${1:a} = sc.nextInt();",
+			"int ${2:b} = sc.nextInt();",
+			"int ${3:c} = sc.nextInt();",
+			"int ${4:d} = sc.nextInt();",
+			"${0:}"
+		]
+	},
+	"scaniiiii": {
+		"prefix": "scaniiiii",
+		"body": [
+			"int ${1:a} = sc.nextInt();",
+			"int ${2:b} = sc.nextInt();",
+			"int ${3:c} = sc.nextInt();",
+			"int ${4:d} = sc.nextInt();",
+			"int ${5:e} = sc.nextInt();",
+			"${0:}"
+		]
+	},
+	"scaniiiiii": {
+		"prefix": "scaniiiiii",
+		"body": [
+			"int ${1:a} = sc.nextInt();",
+			"int ${2:b} = sc.nextInt();",
+			"int ${3:c} = sc.nextInt();",
+			"int ${4:d} = sc.nextInt();",
+			"int ${5:e} = sc.nextInt();",
+			"int ${6:f} = sc.nextInt();",
+			"${0:}"
+		]
+	},
+	"scanl": {
+		"prefix": "scanl",
+		"body": [
+			"long ${1:n} = sc.nextLong();",
+			"${0:}"
+		]
+	},
+	"scanll": {
+		"prefix": "scanll",
+		"body": [
+			"long ${1:x} = sc.nextLong();",
+			"long ${2:y} = sc.nextLong();",
+			"${0:}"
+		]
+	},
+	"scanlll": {
+		"prefix": "scanlll",
+		"body": [
+			"long ${1:a} = sc.nextLong();",
+			"long ${2:b} = sc.nextLong();",
+			"long ${3:c} = sc.nextLong();",
+			"${0:}"
+		]
+	},
+	"scanllll": {
+		"prefix": "scanllll",
+		"body": [
+			"long ${1:a} = sc.nextLong();",
+			"long ${2:b} = sc.nextLong();",
+			"long ${3:c} = sc.nextLong();",
+			"long ${4:d} = sc.nextLong();",
+			"${0:}"
+		]
+	},
+	"scanlllll": {
+		"prefix": "scanlllll",
+		"body": [
+			"long ${1:a} = sc.nextLong();",
+			"long ${2:b} = sc.nextLong();",
+			"long ${3:c} = sc.nextLong();",
+			"long ${4:d} = sc.nextLong();",
+			"long ${5:e} = sc.nextLong();",
+			"${0:}"
+		]
+	},
+	"scanllllll": {
+		"prefix": "scanllllll",
+		"body": [
+			"long ${1:a} = sc.nextLong();",
+			"long ${2:b} = sc.nextLong();",
+			"long ${3:c} = sc.nextLong();",
+			"long ${4:d} = sc.nextLong();",
+			"long ${5:e} = sc.nextLong();",
+			"long ${6:f} = sc.nextLong();",
+			"${0:}"
+		]
+	},
+	"scand": {
+		"prefix": "scand",
+		"body": [
+			"double ${1:n} = sc.nextDouble();",
+			"${0:}"
+		]
+	},
+	"scandd": {
+		"prefix": "scandd",
+		"body": [
+			"double ${1:x} = sc.nextDouble();",
+			"double ${2:y} = sc.nextDouble();",
+			"${0:}"
+		]
+	},
+	"scanddd": {
+		"prefix": "scanddd",
+		"body": [
+			"double ${1:a} = sc.nextDouble();",
+			"double ${2:b} = sc.nextDouble();",
+			"double ${3:c} = sc.nextDouble();",
+			"${0:}"
+		]
+	},
+	"scandddd": {
+		"prefix": "scandddd",
+		"body": [
+			"double ${1:a} = sc.nextDouble();",
+			"double ${2:b} = sc.nextDouble();",
+			"double ${3:c} = sc.nextDouble();",
+			"double ${4:d} = sc.nextDouble();",
+			"${0:}"
+		]
+	},
+	"scanddddd": {
+		"prefix": "scanddddd",
+		"body": [
+			"double ${1:a} = sc.nextDouble();",
+			"double ${2:b} = sc.nextDouble();",
+			"double ${3:c} = sc.nextDouble();",
+			"double ${4:d} = sc.nextDouble();",
+			"double ${5:e} = sc.nextDouble();",
+			"${0:}"
+		]
+	},
+	"scandddddd": {
+		"prefix": "scandddddd",
+		"body": [
+			"double ${1:a} = sc.nextDouble();",
+			"double ${2:b} = sc.nextDouble();",
+			"double ${3:c} = sc.nextDouble();",
+			"double ${4:d} = sc.nextDouble();",
+			"double ${5:e} = sc.nextDouble();",
+			"double ${6:f} = sc.nextDouble();",
+			"${0:}"
+		]
+	},
+	"scans": {
+		"prefix": "scans",
+		"body": [
+			"String ${1:n} = sc.next();",
+			"${0:}"
+		]
+	},
+	"scanss": {
+		"prefix": "scanss",
+		"body": [
+			"String ${1:x} = sc.next();",
+			"String ${2:y} = sc.next();",
+			"${0:}"
+		]
+	},
+	"scansss": {
+		"prefix": "scansss",
+		"body": [
+			"String ${1:a} = sc.next();",
+			"String ${2:b} = sc.next();",
+			"String ${3:c} = sc.next();",
+			"${0:}"
+		]
+	},
+	"scanssss": {
+		"prefix": "scanssss",
+		"body": [
+			"String ${1:a} = sc.next();",
+			"String ${2:b} = sc.next();",
+			"String ${3:c} = sc.next();",
+			"String ${4:s} = sc.next();",
+			"${0:}"
+		]
+	},
+	"scansssss": {
+		"prefix": "scansssss",
+		"body": [
+			"String ${1:a} = sc.next();",
+			"String ${2:b} = sc.next();",
+			"String ${3:c} = sc.next();",
+			"String ${4:s} = sc.next();",
+			"String ${5:e} = sc.next();",
+			"${0:}"
+		]
+	},
+	"scanssssss": {
+		"prefix": "scanssssss",
+		"body": [
+			"String ${1:a} = sc.next();",
+			"String ${2:b} = sc.next();",
+			"String ${3:c} = sc.next();",
+			"String ${4:s} = sc.next();",
+			"String ${5:e} = sc.next();",
+			"String ${6:f} = sc.next();",
+			"${0:}"
+		]
+	},
+	"print": {
+		"prefix": "print",
+		"body": [
+			"System.out.print(${1:});",
+			"${0:}"
+		]
+	},
+	"println": {
+		"prefix": "println",
+		"body": [
+			"System.out.println(${1:});",
+			"${0:}"
+		]
+	},
+	"printf": {
+		"prefix": "printf",
+		"body": [
+			"System.out.printf(\"${1:}\", ${2:});",
+			"${0:}"
+		]
+	}
+}

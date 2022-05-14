@@ -4,14 +4,14 @@ if &compatible
 endif
 
 " Required:
-set runtimepath+=/home/tsuyopon/.config/nvim/dein/repos/github.com/Shougo/dein.vim
+set runtimepath+=/home/tsuyopon/.cache/dein/repos/github.com/Shougo/dein.vim
 
 " Required:
-call dein#begin('/home/tsuyopon/.config/nvim/dein')
+call dein#begin('/home/tsuyopon/.cache/dein')
 
 " Let dein manage dein
 " Required:
-call dein#add('/home/tsuyopon/.config/nvim/dein/repos/github.com/Shougo/dein.vim')
+call dein#add('/home/tsuyopon/.cache/dein/repos/github.com/Shougo/dein.vim')
 
 " Add or remove your plugins here like this:
 "call dein#add('Shougo/neosnippet.vim')
@@ -24,10 +24,14 @@ call dein#end()
 filetype plugin indent on
 syntax enable
 
+" If you want to install not installed plugins on startup.
+"if dein#check_install()
+"  call dein#install()
+"endif
+
 "End dein Scripts-------------------------
-
-
-"NeoBundle から dein.vim に乗り換えたら爆速だった話
+"
+""NeoBundle から dein.vim に乗り換えたら爆速だった話
 " vimrc に以下のように追記
 
 " プラグインが実際にインストールされるディレクトリ
@@ -49,9 +53,9 @@ if dein#load_state(s:dein_dir)
 
   " プラグインリストを収めた TOML ファイル
   " 予め TOML ファイル（後述）を用意しておく
-  let g:rc_dir    = expand('~/.config/nvim')
-  let s:toml      = g:rc_dir . '/dein.toml'
-  let s:lazy_toml = g:rc_dir . '/dein_lazy.toml'
+  let s:rc_dir    = expand('~/.config/nvim')
+  let s:toml      = s:rc_dir . '/dein.toml'
+  let s:lazy_toml = s:rc_dir . '/dein_lazy.toml'
 
   " TOML を読み込み、キャッシュしておく
   call dein#load_toml(s:toml,      {'lazy': 0})
@@ -135,35 +139,18 @@ inoremap jk <ESC>
 colorscheme molokaiCG
 set t_Co=256
 
+highlight Normal ctermbg=NONE guibg=NONE
+highlight NonText ctermbg=NONE guibg=NONE
+highlight LineNr ctermbg=NONE guibg=NONE
+highlight Folded ctermbg=NONE guibg=NONE
+highlight EndOfBuffer ctermbg=NONE guibg=NONE
+
 
 "--------------------------------------------------------------------------
 " クリップボード
-set clipboard=unnamedplus
+"set clipboard=unnamedplus
+set clipboard=unnamed,unnamedplus
 
-
-"--------------------------------------------------------------------------
-" ビルド
-nmap <C-i> :call ExcuteMain()<CR>
-
-function! ExcuteMain()
-	:w
-	if expand("%:e") == 'c'
-		:!gcc % -o %:r.out
-		:!./%:r.out
-	elseif expand("%:e") == 'cpp'
-		!g++ % -o %:r.out
-		!./%:r.out
-	elseif expand("%:e") == 'java'
-		:!javac %
-		:!java %:r
-	elseif expand("%:e") == 'py'
-		:!python3 %
-	elseif expand("%:e") == 'rb'
-		:!ruby %
-	endif
-endfunction
-
-command! Getsh :!cp ~/.config/nvim/excute.sh excute.sh
 "--------------------------------------------------------------------------
 " 全コピー
 nmap cy :%y<Enter>
@@ -173,39 +160,8 @@ nmap cy :%y<Enter>
 nmap cq dwi"<ESC>p
 
 "--------------------------------------------------------------------------
-"補完
-" 補完表示時のEnterで改行をしない
-inoremap <expr><CR>  pumvisible() ? "<C-y>" : "<CR>"
-
-set completeopt=menuone,noinsert
-inoremap <expr><C-n> pumvisible() ? "<Down>" : "<C-n>"
-inoremap <expr><C-p> pumvisible() ? "<Up>" : "<C-p>"
-"補完候補選択時は<TAB>で候補移動snipppet時は<TAB>で次の入力先へ
-imap <expr><TAB> pumvisible() ? "\<C-N>" : neosnippet#jumpable() ?  "\<Plug>(neosnippet_expand_or_jump)" : "\<TAB>"
-smap <expr><TAB> neosnippet#jumpable() ?  "\<Plug>(neosnippet_expand_or_jump)" : "\<TAB>"
-inoremap <expr><S-TAB>  pumvisible() ? "\<C-p>" : "\<S-TAB>"
-
-"--------------------------------------------------------------------------
 "独自スニペット
 let g:neosnippet#snippets_directory='~/.config/nvim/snippets/'
-
-"--------------------------------------------------------------------------
-" Quickrun
-silent! nmap <Space>r <Plug>(quickrun)
-
-
-highlight Normal ctermbg=none
-highlight NonText ctermbg=none
-highlight LineNr ctermbg=none
-highlight Folded ctermbg=none
-highlight EndOfBuffer ctermbg=none
-
-
-"--------------------------------------------------------------------------
-" LaTeX
-let g:tex_flavor = "latex"
-let maplocalleader=' '
-let g:tex_conceal=''
 
 "--------------------------------------------------------------------------
 " ターミナル
@@ -221,8 +177,3 @@ set shiftwidth=4
 
 
 filetype plugin indent on
-
-
-"--------------------------------------------------------------------------
-" 言語
-autocmd BufReadPost *.kt setlocal filetype=kotlin
