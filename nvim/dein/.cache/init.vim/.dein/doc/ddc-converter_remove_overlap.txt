@@ -1,0 +1,1 @@
+/home/tsuyopon/.config/nvim/dein/repos/github.com/Shougo/ddc-converter_remove_overlap/doc/ddc-converter_remove_overlap.txt

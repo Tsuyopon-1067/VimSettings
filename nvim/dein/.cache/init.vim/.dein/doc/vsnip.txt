@@ -1,0 +1,1 @@
+/home/tsuyopon/.config/nvim/dein/repos/github.com/hrsh7th/vim-vsnip/doc/vsnip.txt

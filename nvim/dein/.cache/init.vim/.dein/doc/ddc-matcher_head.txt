@@ -1,0 +1,1 @@
+/home/tsuyopon/.config/nvim/dein/repos/github.com/Shougo/ddc-matcher_head/doc/ddc-matcher_head.txt

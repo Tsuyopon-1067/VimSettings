@@ -1,0 +1,1 @@
+/home/tsuyopon/.config/nvim/dein/repos/github.com/cohama/lexima.vim/autoload/lexima/string.vim

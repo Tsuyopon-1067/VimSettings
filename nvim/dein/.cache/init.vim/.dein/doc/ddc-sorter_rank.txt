@@ -1,0 +1,1 @@
+/home/tsuyopon/.config/nvim/dein/repos/github.com/Shougo/ddc-sorter_rank/doc/ddc-sorter_rank.txt

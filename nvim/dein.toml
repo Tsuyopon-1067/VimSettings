@@ -1,0 +1,8 @@
+[[plugins]]
+ repo = 'vim-denops/denops.vim'
+[[plugins]]
+ repo = 'cohama/lexima.vim'
+[[plugins]]
+ repo = 'win-ime-con.nvim'
+[[plugins]]
+ repo = 'markonm/traces.vim'
