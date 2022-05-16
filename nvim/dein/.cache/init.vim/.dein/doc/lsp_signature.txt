@@ -1,0 +1,1 @@
+/home/tsuyopon/.config/nvim/dein/repos/github.com/ray-x/lsp_signature.nvim/doc/lsp_signature.txt

@@ -1,51 +1,24 @@
-"dein Scripts-----------------------------
-if &compatible
-  set nocompatible               " Be iMproved
-endif
-
-" Required:
-set runtimepath+=/home/tsuyopon/.config/nvim/dein/repos/github.com/Shougo/dein.vim
-
-" Required:
-call dein#begin('/home/tsuyopon/.config/nvim/dein')
-
-" Let dein manage dein
-" Required:
-call dein#add('/home/tsuyopon/.config/nvim/dein/repos/github.com/Shougo/dein.vim')
-
-" Add or remove your plugins here like this:
-"call dein#add('Shougo/neosnippet.vim')
-"call dein#add('Shougo/neosnippet-snippets')
-
-" Required:
-call dein#end()
-
-" Required:
-filetype plugin indent on
-syntax enable
-
-" If you want to install not installed plugins on startup.
-"if dein#check_install()
-"  call dein#install()
-"endif
-
-"End dein Scripts-------------------------
-
 "NeoBundle から dein.vim に乗り換えたら爆速だった話
 " vimrc に以下のように追記
 
-" プラグインが実際にインストールされるディレクトリ
-let s:dein_dir = expand('~/.config/nvim/dein')
-" dein.vim 本体
+" プラグインがインストールされるディレクトリ
+" dein.vim settings {{{
+" install dir {{{
+let s:dein_dir = expand('~/.config/nvim/dein/')
 let s:dein_repo_dir = s:dein_dir . '/repos/github.com/Shougo/dein.vim'
+" }}}
 
 " dein.vim がなければ github から落としてくる
+" dein installation check {{{
 if &runtimepath !~# '/dein.vim'
   if !isdirectory(s:dein_repo_dir)
     execute '!git clone https://github.com/Shougo/dein.vim' s:dein_repo_dir
   endif
-  execute 'set runtimepath^=' . fnamemodify(s:dein_repo_dir, ':p')
+  execute 'set runtimepath^=' . s:dein_repo_dir
 endif
+" }}}
+
+" begin settings {{{
 
 " 設定開始
 if dein#load_state(s:dein_dir)
@@ -65,11 +38,24 @@ if dein#load_state(s:dein_dir)
   call dein#end()
   call dein#save_state()
 endif
+" }}}
 
-" もし、未インストールものものがあったらインストール
+" 未インストールものものがあったらインストール
+" plugin installation check {{{
 if dein#check_install()
   call dein#install()
 endif
+" }}}
+
+" 未アンインストールものものがあったらアンインストール
+" plugin remove check {{{
+let s:removed_plugins = dein#check_clean()
+if len(s:removed_plugins) > 0
+  call map(s:removed_plugins, "delete(v:val, 'rf')")
+  call dein#recache_runtimepath()
+endif
+" }}}
+
 
 "--------------------------------------------------------------------------
 " 始めにやるsetting
@@ -178,9 +164,13 @@ set shiftwidth=4
 
 filetype plugin indent on
 
-set tabstop=4
-set shiftwidth=4
-
+augroup fileTypeIndent
+    autocmd!
+    autocmd BufNewFile,BufRead *.py setlocal tabstop=4 softtabstop=4 shiftwidth=4
+    autocmd BufNewFile,BufRead *.py set noexpandtab 
+    autocmd BufNewFile,BufRead *.rb setlocal tabstop=2 softtabstop=2 shiftwidth=2noexpandtab
+    autocmd BufNewFile,BufRead *.rb set noexpandtab 
+augroup END
 
 filetype plugin indent on
 
@@ -188,3 +178,99 @@ filetype plugin indent on
 "--------------------------------------------------------------------------
 " 言語
 autocmd BufReadPost *.kt setlocal filetype=kotlin
+
+"--------------------------------------------------------------------------
+" previm ブラウザ指定
+let g:previm_open_cmd = 'open -a firefox'
+autocmd BufRead,BufNewFile *.md nnoremap <Leader>a :<C-u> PrevimOpen <CR>
+autocmd FileType defx call s:defx_my_settings()
+
+"--------------------------------------------------------------------------
+" 自動コンパイル
+autocmd BufEnter *.cpp nnoremap <expr> <F5> '<C-w>jig++ -O0 -o ' . expand("%:r") . '.out ' . expand("%:p") . '<CR> ./' .expand("%:r") . '.out <CR>'
+autocmd BufEnter *.cpp nnoremap <expr> <F6> '<C-w>jig++ -O0 -o ' . expand("%:r") . '.out ' . expand("%:p") . '<CR>'
+autocmd BufEnter *.java nnoremap <expr> <F5> '<C-w>jijavac ' . expand("%:p") . '<CR> java ' .expand("%:r") . ' <CR>'
+autocmd BufEnter *.java nnoremap <expr> <F6> '<C-w>jijavac ' . expand("%:p") . '<CR>'
+autocmd BufEnter *.py nnoremap <expr> <F5> '<C-w>jipython3 ' . expand("%:p") . '<CR>'
+
+"--------------------------------------------------------------------------
+" defx.nvim キーバインド
+function! s:defx_my_settings() abort
+  nnoremap <silent><buffer><expr> <CR>
+   \ defx#do_action('drop')
+  nnoremap <silent><buffer><expr> c
+  \ defx#do_action('copy')
+  nnoremap <silent><buffer><expr> m
+  \ defx#do_action('move')
+  nnoremap <silent><buffer><expr> p
+  \ defx#do_action('paste')
+  nnoremap <silent><buffer><expr> l
+  \ defx#do_action('drop')
+  nnoremap <silent><buffer><expr> t
+  \ defx#do_action('open','tabnew')
+  nnoremap <silent><buffer><expr> E
+  \ defx#do_action('drop', 'vsplit')
+  nnoremap <silent><buffer><expr> P
+  \ defx#do_action('drop', 'pedit')
+  nnoremap <silent><buffer><expr> o
+  \ defx#do_action('open_or_close_tree')
+  nnoremap <silent><buffer><expr> K
+  \ defx#do_action('new_directory')
+  nnoremap <silent><buffer><expr> N
+  \ defx#do_action('new_file')
+  nnoremap <silent><buffer><expr> M
+  \ defx#do_action('new_multiple_files')
+  nnoremap <silent><buffer><expr> C
+  \ defx#do_action('toggle_columns',
+  \                'mark:indent:icon:filename:type:size:time')
+  nnoremap <silent><buffer><expr> S
+  \ defx#do_action('toggle_sort', 'time')
+  nnoremap <silent><buffer><expr> d
+  \ defx#do_action('remove')
+  nnoremap <silent><buffer><expr> r
+  \ defx#do_action('rename')
+  nnoremap <silent><buffer><expr> !
+  \ defx#do_action('execute_command')
+  nnoremap <silent><buffer><expr> x
+  \ defx#do_action('execute_system')
+  nnoremap <silent><buffer><expr> yy
+  \ defx#do_action('yank_path')
+  nnoremap <silent><buffer><expr> .
+  \ defx#do_action('toggle_ignored_files')
+  nnoremap <silent><buffer><expr> ;
+  \ defx#do_action('repeat')
+  nnoremap <silent><buffer><expr> h
+  \ defx#do_action('cd', ['..'])
+  nnoremap <silent><buffer><expr> ~
+  \ defx#do_action('cd')
+  nnoremap <silent><buffer><expr> q
+  \ defx#do_action('quit')
+  nnoremap <silent><buffer><expr> <Space>
+  \ defx#do_action('toggle_select') . 'j'
+  nnoremap <silent><buffer><expr> *
+  \ defx#do_action('toggle_select_all')
+  nnoremap <silent><buffer><expr> j
+  \ line('.') == line('$') ? 'gg' : 'j'
+  nnoremap <silent><buffer><expr> k
+  \ line('.') == 1 ? 'G' : 'k'
+  nnoremap <silent><buffer><expr> <C-l>
+  \ defx#do_action('redraw')
+  nnoremap <silent><buffer><expr> <C-g>
+  \ defx#do_action('print')
+  nnoremap <silent><buffer><expr> cd
+  \ defx#do_action('change_vim_cwd')
+endfunction
+
+" vim起動時に起動、<Leader>fで起動
+nnoremap <silent> <Leader>f :<C-u> Defx <CR>
+
+" 起動時のレイアウトや設定
+call defx#custom#option('_', {
+      \ 'winwidth': 24,
+      \ 'split': 'vertical',
+      \ 'direction': 'topleft',
+      \ 'show_ignored_files': 1,
+      \ 'buffer_name': 'exlorer',
+      \ 'toggle': 1,
+      \ 'resume': 1,
+      \ })

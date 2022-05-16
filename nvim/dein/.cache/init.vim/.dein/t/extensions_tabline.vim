@@ -1,1 +1,0 @@
-/home/tsuyopon/.config/nvim/dein/repos/github.com/vim-airline/vim-airline/t/extensions_tabline.vim

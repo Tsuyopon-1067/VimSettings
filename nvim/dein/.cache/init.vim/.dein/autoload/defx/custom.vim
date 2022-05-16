@@ -1,0 +1,1 @@
+/home/tsuyopon/.config/nvim/dein/repos/github.com/Shougo/defx.nvim/autoload/defx/custom.vim

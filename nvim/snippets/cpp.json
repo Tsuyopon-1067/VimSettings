@@ -176,7 +176,7 @@
 	"scans": {
 		"prefix": "scans",
 		"body": [
-			"string ${1:n};",
+			"string ${1:s};",
 			"cin >> $1;",
 			"$0"
 		]
@@ -231,22 +231,20 @@
 	"waryin": {
 		"prefix": "aryinw",
 		"body": [
-			"for (long long ${1:i} = 0, i < ${2:n}, ++i) cin >> ${3:a}[$1] >> ${4:b}[$1];",
+			"for (long long ${1:i} = 0; i < ${2:n}; ++i) cin >> ${3:a}[$1] >> ${4:b}[$1];",
 			"${0:}"
 		]
 	},
 	"cou": {
 		"prefix": "cou",
 		"body": [
-			"cout << ${1:} << endl;",
-			"${0:}"
+			"cout << ${1:} << endl;"
 		]
 	},
 	"cout": {
 		"prefix": "cout",
 		"body": [
-			"cout << ${1:} << endl;",
-			"${0:}"
+			"cout << ${1:} << endl;"
 		]
 	},
 	"ansy": {
@@ -295,22 +293,26 @@
 	"vector": {
 		"prefix": "vector",
 		"body": [
+			"vector<${1:long long}> ${2:a}(${3:n});"
+		]
+	},
+	"vecvec": {
+		"prefix": "vecvec",
+		"body": [
 			"vector<${1:long long}> ${2:a}(${3:n});",
-			"$0"
+			"vector<${4:long long}> ${5:b}(${6:n});"
 		]
 	},
 	"wvector": {
 		"prefix": "wvector",
 		"body": [
-			"vector<vector<${1:long long}>> ${2:NAME}(${3:n}, vector<$1>(${4:n}));",
-			"$0"
+			"vector<vector<${1:long long}>> ${2:NAME}(${3:n}, vector<$1>(${4:n}));"
 		]
 	},
 	"graphv": {
 		"prefix": "graphv",
 		"body": [
-			"vector<vector<${1:long long}>> ${2:g}(${3:n}, vector<$1>(${4:n}));",
-			"$0"
+			"vector<vector<${1:long long}>> ${2:g}(${3:n}, vector<$1>(${4:n}));"
 		]
 	},
 	"unique": {
@@ -330,8 +332,7 @@
 	"sort": {
 		"prefix": "sort",
 		"body": [
-			"sort(${1:a}.begin(), $1.end());",
-			"$0"
+			"sort(${1:a}.begin(), $1.end());"
 		]
 	},
 	"reverse": {
@@ -351,8 +352,7 @@
 	"find": {
 		"prefix": "find",
 		"body": [
-			"{1:st}.find(${2:x}) != $1.end()",
-			"$0"
+			"${1:st}.find(${2:x}) != $1.end()"
 		]
 	},
 	"setshow": {
@@ -372,8 +372,7 @@
 	"pair": {
 		"prefix": "pair",
 		"body": [
-			"pair<${1:long long}, ${2:long long}>${3:pr};${0:};",
-			"$0"
+			"pair<${1:long long}, ${2:long long}>${3:pr};${0:};"
 		]
 	},
 	"ff": {

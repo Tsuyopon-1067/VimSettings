@@ -6,3 +6,11 @@
  repo = 'win-ime-con.nvim'
 [[plugins]]
  repo = 'markonm/traces.vim'
+[[plugins]]
+ repo = 'Shougo/defx.nvim'
+[[plugins]]
+ repo = 'kannokanno/previm'
+ [[plugins]]
+repo = 'mattn/vim-maketable'
+[[plugins]]
+repo = 'skanehira/translate.vim'

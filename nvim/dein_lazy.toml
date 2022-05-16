@@ -6,18 +6,15 @@
  hook_source = '''
  call ddc#custom#patch_global('sources', ['nvim-lsp', 'around', 'vsnip'])
  call ddc#custom#patch_global('sourceOptions', {
-      \ '_': {
-      \ 'matchers': ['matcher_head'],
-      \ 'sorters': ['sorter_rank'],
-      \ 'converters': ['converter_remove_overlap'],
-      \ },
-      \ 'around': {'mark': 'around'},
-      \ 'nvim-lsp': {
-      \ 'mark': 'LSP',
-      \ 'forceCompletionPattern': '\.\w*|:\w*|->\w*',
-      \ },
-      \ })
-
+        \ '_': {
+        \   'matchers': ['matcher_head'],
+        \   'sorters': ['sorter_rank']},
+        \ 'around': {
+        \   'mark': 'around' },
+        \ 'nvim-lsp': {
+        \   'mark': 'lsp',
+        \   'forceCompletionPattern': '\.\w*|:\w*|->\w*' },
+        \ })
  call ddc#custom#patch_global('sourceParams', {
       \ 'around': {'maxSize': 500},
       \ })
@@ -31,7 +28,10 @@
  call ddc#custom#patch_filetype('autoCompleteDelay', 0)
  call ddc#enable()
 '''
- 
+
+[[plugins]]
+ repo = 'Shougo/ddc-nvim-lsp'
+ on_source = 'ddc.vim'
 
 
 [[plgins]]
@@ -50,9 +50,6 @@
  repo = 'Shougo/ddc-converter_remove_overlap'
  on_source = 'ddc.vim'
 
-[[plugins]]
- repo = 'Shougo/ddc-nvim-lsp'
- on_source = 'ddc.vim'
 
 [[plugins]]
  repo = 'hrsh7th/vim-vsnip'
@@ -78,39 +75,22 @@
  repo = 'rafamadriz/friendly-snippets'
 
 [[plugins]]
- repo = 'neovim/nvim-lspconfig'
- on_event = 'BufEnter'
- hook_source = '''
- lua << EOF
- local nvim_lsp = require('lspconfig')
- local on_attach = function (client, bufnr)
- local function buf_set_keymap(...) vim.api.nvim_buf_set_keymap(bufnr, ...) end
- local function buf_set_option(...) vim.api.nvim_buf_set_option(bufnr, ...) end
-
-local opts = { noremap=true, silent=true }
- buf_set_keymap('n', 'gd', '<Cmd>lua vim.lsp.buf.definition()<CR>', opts)
- buf_set_keymap('n', 'K', '<Cmd>lua vim.lsp.buf.hover()<CR>', opts)
- buf_set_keymap('n', 'gi', '<cmd>lua vim.lsp.buf.implementation()<CR>', opts)
- buf_set_keymap('n', 'gs', '<cmd>lua vim.lsp.buf.signature_help()<CR>', opts)
- buf_set_keymap('n', 'gr', '<cmd>lua vim.lsp.buf.references()<CR>', opts)
- buf_set_keymap('n', 'gx', '<cmd>lua vim.lsp.diagnostic.show_line_diagnostics()<CR>', opts)
- buf_set_keymap('n', 'g[', '<cmd>lua vim.lsp.diagnostic.goto_prev()<CR>', opts)
- buf_set_keymap('n', 'g]', '<cmd>lua vim.lsp.diagnostic.goto_next()<CR>', opts)
-end
-
- local lsp_installer = require("nvim-lsp-installer")
- lsp_installer.on_server_ready(function(server)
-   local opts = {}
-   opts.on_attach = on_attach
-   server:setup(opts)
-   vim.cmd [[ do User LspAttachBuffers ]]
- end)
+repo = 'neovim/nvim-lspconfig'
+on_event = 'BufEnter'
+hook_source= '''
+lua << EOF
+local lsp_installer = require("nvim-lsp-installer")
+lsp_installer.on_server_ready(function(server)
+  local opts = {}
+  server:setup(opts)
+end)
 EOF
 '''
 
 [[plugins]]
- repo ='williamboman/nvim-lsp-installer'
- on_source = 'nvim-lspconfig'
+repo = 'williamboman/nvim-lsp-installer'
+on_source = 'nvim-lspconfig'
+
 
 [[plugins]]
  repo = 'matsui54/denops-signature_help'
@@ -173,3 +153,11 @@ EOF
 
  command! -nargs=* -bang RG call RipgrepFzf(<q-args>, <bang>0)
 '''
+
+
+[[plugins]]
+ repo = 'tami5/lspsaga.nvim'
+[[plugins]]
+ repo = 'ray-x/lsp_signature.nvim'
+[[plugins]]
+ repo = 'folke/trouble.nvim'
