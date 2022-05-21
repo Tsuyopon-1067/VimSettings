@@ -1,6 +1,3 @@
-"NeoBundle から dein.vim に乗り換えたら爆速だった話
-" vimrc に以下のように追記
-
 " プラグインがインストールされるディレクトリ
 " dein.vim settings {{{
 " install dir {{{
