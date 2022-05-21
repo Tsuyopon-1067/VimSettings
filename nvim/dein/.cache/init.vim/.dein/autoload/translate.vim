@@ -1,1 +1,0 @@
-/home/tsuyopon/.config/nvim/dein/repos/github.com/skanehira/translate.vim/autoload/translate.vim

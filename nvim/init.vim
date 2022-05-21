@@ -146,14 +146,39 @@ nmap cy :%y<Enter>
 nmap cq dwi"<ESC>p
 
 "--------------------------------------------------------------------------
-"独自スニペット
-let g:neosnippet#snippets_directory='~/.config/nvim/snippets/'
-
-"--------------------------------------------------------------------------
 " ターミナル
 
-command! -nargs=* T w | split | wincmd j | resize 20 | terminal <args>
+function MakeTerm() abort
+    split
+    wincmd j
+    resize 20
+    terminal
+endfunction
+function FirstTerm() abort
+    let l:kaku = expand('%:e')
+    if (kaku == 'cpp' || kaku == 'java' || kaku == 'py')
+        call MakeTerm()
+    endif
+endfunction
+command! -nargs=* T w | :call MakeTerm() | :call feedkeys("i")
 tnoremap <c-t><c-t> <C-¥><C-n><C-w><C-w>
+
+
+if has('vim_starting')
+    call FirstTerm()
+endif
+function RunTerm() abort
+    echo(mode())
+endfunction
+
+"--------------------------------------------------------------------------
+" 自動コンパイル
+autocmd BufEnter *.cpp nnoremap <expr> <F5> '<C-w>jig++ -O0 -o ' . expand("%:r") . '.out ' . expand("%:p") . '<CR> ./' .expand("%:r") . '.out <CR>'
+autocmd BufEnter *.cpp nnoremap <expr> <F5> '<C-w>jig++ -O0 -o ' . expand("%:r") . '.out ' . expand("%:p") . '<CR> ./' .expand("%:r") . '.out <CR>'
+autocmd BufEnter *.cpp nnoremap <expr> <F6> '<C-w>jig++ -O0 -o ' . expand("%:r") . '.out ' . expand("%:p") . '<CR>'
+autocmd BufEnter *.java nnoremap <expr> <F5> '<C-w>jijavac ' . expand("%:p") . '<CR> java ' .expand("%:r") . ' <CR>'
+autocmd BufEnter *.java nnoremap <expr> <F6> '<C-w>jijavac ' . expand("%:p") . '<CR>'
+autocmd BufEnter *.py nnoremap <expr> <F5> '<C-w>jipython3 ' . expand("%:p") . '<CR>'
 
 "--------------------------------------------------------------------------
 " Tab
@@ -184,14 +209,6 @@ autocmd BufReadPost *.kt setlocal filetype=kotlin
 let g:previm_open_cmd = 'open -a firefox'
 autocmd BufRead,BufNewFile *.md nnoremap <Leader>a :<C-u> PrevimOpen <CR>
 autocmd FileType defx call s:defx_my_settings()
-
-"--------------------------------------------------------------------------
-" 自動コンパイル
-autocmd BufEnter *.cpp nnoremap <expr> <F5> '<C-w>jig++ -O0 -o ' . expand("%:r") . '.out ' . expand("%:p") . '<CR> ./' .expand("%:r") . '.out <CR>'
-autocmd BufEnter *.cpp nnoremap <expr> <F6> '<C-w>jig++ -O0 -o ' . expand("%:r") . '.out ' . expand("%:p") . '<CR>'
-autocmd BufEnter *.java nnoremap <expr> <F5> '<C-w>jijavac ' . expand("%:p") . '<CR> java ' .expand("%:r") . ' <CR>'
-autocmd BufEnter *.java nnoremap <expr> <F6> '<C-w>jijavac ' . expand("%:p") . '<CR>'
-autocmd BufEnter *.py nnoremap <expr> <F5> '<C-w>jipython3 ' . expand("%:p") . '<CR>'
 
 "--------------------------------------------------------------------------
 " defx.nvim キーバインド

@@ -1,1 +1,0 @@
-/home/tsuyopon/.config/nvim/dein/repos/github.com/kannokanno/previm/test/autoload/previm_test.vim

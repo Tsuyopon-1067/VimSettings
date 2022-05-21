@@ -1,1 +1,0 @@
-/home/tsuyopon/.config/nvim/dein/repos/github.com/mattn/vim-maketable/plugin/maketable.vim

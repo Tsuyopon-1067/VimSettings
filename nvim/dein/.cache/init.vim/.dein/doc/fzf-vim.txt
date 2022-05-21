@@ -1,1 +1,0 @@
-/home/tsuyopon/.config/nvim/dein/repos/github.com/junegunn/fzf.vim/doc/fzf-vim.txt

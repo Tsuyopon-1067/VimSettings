@@ -4,7 +4,7 @@
  on_event = 'InsertEnter'
  depends = ['denops.vim']
  hook_source = '''
- call ddc#custom#patch_global('sources', ['nvim-lsp', 'around', 'vsnip'])
+ call ddc#custom#patch_global('sources', ['nvim-lsp', 'around', 'vsnip', 'nextword', 'file'])
  call ddc#custom#patch_global('sourceOptions', {
         \ '_': {
         \   'matchers': ['matcher_head'],
@@ -14,6 +14,14 @@
         \ 'nvim-lsp': {
         \   'mark': 'lsp',
         \   'forceCompletionPattern': '\.\w*|:\w*|->\w*' },
+		\ 'nextword': {
+		\   'mark': 'nextword',
+		\   'minAutoCompleteLength': 3,
+		\   'isVolatile': v:true},
+		\ 'file': {
+		\   'mark': 'F',
+		\   'isVolatile': v:true,
+		\   'forceCompletionPattern': '\S/\S*'},
         \ })
  call ddc#custom#patch_global('sourceParams', {
       \ 'around': {'maxSize': 500},
@@ -25,7 +33,18 @@
       \ '<TAB>' : ddc#map#manual_complete()
  inoremap <expr><S-TAB>  ddc#map#pum_visible() ? '<C-p>' : '<C-h>'
 
- call ddc#custom#patch_filetype('autoCompleteDelay', 0)
+call ddc#custom#patch_filetype(
+    \ ['ps1', 'dosbatch', 'autohotkey', 'registry'], {
+    \ 'sourceOptions': {
+    \   'file': {
+    \     'forceCompletionPattern': '\S\\\S*',
+    \   },
+    \ },
+    \ 'sourceParams': {
+    \   'file': {
+    \     'mode': 'win32',
+    \   },
+    \ }})
  call ddc#enable()
 '''
 
@@ -48,6 +67,14 @@
 
 [[plugins]]
  repo = 'Shougo/ddc-converter_remove_overlap'
+ on_source = 'ddc.vim'
+
+[[plugins]]
+ repo = 'LumaKernel/ddc-file'
+ on_source = 'ddc.vim'
+
+[[plugins]]
+ repo = 'Shougo/ddc-nextword'
  on_source = 'ddc.vim'
 
 

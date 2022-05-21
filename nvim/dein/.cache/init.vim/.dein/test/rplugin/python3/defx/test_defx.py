@@ -1,1 +1,0 @@
-/home/tsuyopon/.config/nvim/dein/repos/github.com/Shougo/defx.nvim/test/rplugin/python3/defx/test_defx.py

@@ -3,7 +3,7 @@
 [[plugins]]
  repo = 'cohama/lexima.vim'
 [[plugins]]
- repo = 'win-ime-con.nvim'
+ repo = 'pepo-le/win.ime-con.nvim'
 [[plugins]]
  repo = 'markonm/traces.vim'
 [[plugins]]
@@ -14,3 +14,9 @@
 repo = 'mattn/vim-maketable'
 [[plugins]]
 repo = 'skanehira/translate.vim'
+# スクロール
+[[plugins]]
+repo = 'yuttie/comfortable-motion.vim'
+# 行末の空白
+[[plugins]]
+repo = 'bronson/vim-trailing-whitespace'
