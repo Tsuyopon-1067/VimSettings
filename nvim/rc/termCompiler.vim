@@ -45,14 +45,17 @@ if has('vim_starting')
 endif
 
 function! TermRunnerCmp() abort
+	execute 'w'
 	call MakeTerm()
 	call feedkeys(s:cmp . "\<CR>", 'n')
 endfunction
 function! TermRunnerEx() abort
+	execute 'w'
 	call MakeTerm()
 	call feedkeys(s:ex . "\<CR>", 'n')
 endfunction
 function! TermRunnerRun() abort
+	execute 'w'
 	call MakeTerm()
 	call feedkeys(s:cmp . "\<CR>", 'n')
 	call feedkeys(s:ex . "\<CR>", 'n')
