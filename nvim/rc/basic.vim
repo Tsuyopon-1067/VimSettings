@@ -75,6 +75,8 @@ highlight EndOfBuffer ctermbg=NONE guibg=NONE
 " クリップボード
 "set clipboard=unnamedplus
 set clipboard=unnamed,unnamedplus
+set clipboard+=unnamedplus
+" sudo apt-get install xsel
 
 "--------------------------------------------------------------------------
 " 全コピー
