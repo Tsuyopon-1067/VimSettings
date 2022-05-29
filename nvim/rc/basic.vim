@@ -61,6 +61,8 @@ inoremap jk <ESC>
 " カラースキーム
 colorscheme molokaiCG
 set t_Co=256
+set background=light
+colorscheme solarized " solarizedPublic/vim-colors
 
 highlight Normal ctermbg=NONE guibg=NONE
 highlight NonText ctermbg=NONE guibg=NONE

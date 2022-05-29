@@ -11,20 +11,21 @@ Jetpack 'onsails/lspkind-nvim'
 Jetpack 'ray-x/cmp-treesitter'
 Jetpack 'hrsh7th/cmp-vsnip'
 Jetpack 'hrsh7th/vim-vsnip'
-Jetpack 'folke/lsp-colors.nvim'
+Jetpack 'folke/lsp-colors.nvim' " LSPハイライト
 Jetpack 'nvim-telescope/telescope.nvim'
-Jetpack 'nvim-lualine/lualine.nvim'
-Jetpack 'cohama/lexima.vim'
-Jetpack 'pepo-le/win-ime-con.nvim'
-Jetpack 'skanehira/translate.vim'
-Jetpack 'yuttie/comfortable-motion.vim'
-Jetpack 'bronson/vim-trailing-whitespace'
-Jetpack 'Shougo/defx.nvim'
-Jetpack 'nvim-treesitter/nvim-treesitter'
-Jetpack 'sharkdp/fd'
-Jetpack 'nvim-lua/plenary.nvim'
-Jetpack 'BurntSushi/ripgrep'
-Jetpack 'zefei/vim-wintabs'
+Jetpack 'nvim-lualine/lualine.nvim' " ステータスライン
+Jetpack 'cohama/lexima.vim' " 閉じ括弧
+Jetpack 'pepo-le/win-ime-con.nvim' " モード変更時にIME状態を自動で切り替える
+Jetpack 'skanehira/translate.vim' " :translateで翻訳
+Jetpack 'yuttie/comfortable-motion.vim' " スムーズなスクロール
+Jetpack 'bronson/vim-trailing-whitespace' " 末尾の無駄なスペースをハイライト
+Jetpack 'Shougo/defx.nvim' " ファイラ
+Jetpack 'nvim-treesitter/nvim-treesitter' " nvim-treesitterのインターフェース
+Jetpack 'sharkdp/fd' " ファイルシステム内のエントリを検索する
+Jetpack 'nvim-lua/plenary.nvim' " lua関数
+Jetpack 'BurntSushi/ripgrep' " 現在の検索を再帰的に検索する行指向の検索ツール
+Jetpack 'zefei/vim-wintabs' " バッファをタブラインに表示
+Jetpack 'ray-x/lsp_signature.nvim' " シグネチャを表示
 call jetpack#end()
 
 
