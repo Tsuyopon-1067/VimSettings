@@ -56,7 +56,8 @@ set hlsearch
 " ESC連打でハイライト解除
 nmap <Esc><Esc> :nohlsearch<CR><Esc>
 inoremap jk <ESC>
-
+" 折りたたみ
+set foldmethod=indent
 "--------------------------------------------------------------------------
 " カラースキーム
 colorscheme molokaiCG

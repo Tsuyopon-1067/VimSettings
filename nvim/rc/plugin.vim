@@ -21,6 +21,7 @@ Jetpack 'yuttie/comfortable-motion.vim' " スムーズなスクロール
 Jetpack 'bronson/vim-trailing-whitespace' " 末尾の無駄なスペースをハイライト
 Jetpack 'Shougo/defx.nvim' " ファイラ
 Jetpack 'nvim-treesitter/nvim-treesitter' " nvim-treesitterのインターフェース
+Jetpack 'windwp/nvim-ts-autotag' " htmlタグを自動で閉じる
 Jetpack 'sharkdp/fd' " ファイルシステム内のエントリを検索する
 Jetpack 'nvim-lua/plenary.nvim' " lua関数
 Jetpack 'BurntSushi/ripgrep' " 現在の検索を再帰的に検索する行指向の検索ツール
