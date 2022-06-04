@@ -71,6 +71,9 @@ highlight LineNr ctermbg=NONE guibg=NONE
 highlight Folded ctermbg=NONE guibg=NONE
 highlight EndOfBuffer ctermbg=NONE guibg=NONE
 
+hi TabLineSel guifg=NONE guibg=NONE guisp=NONE gui=bold ctermfg=10 ctermbg=NONE cterm=bold
+hi TabLine guifg=NONE guibg=NONE guisp=NONE gui=bold ctermfg=8 ctermbg=14 cterm=bold
+
 
 "--------------------------------------------------------------------------
 " クリップボード
