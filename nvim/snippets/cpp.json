@@ -237,50 +237,46 @@
 		"prefix": "aryout",
 		"body": [
 			"for (auto ${1:x} : ${2:a}) cout << $1 << \" \";",
-			"cout << endl;",
-			"${0:}"
+			"cout << endl;${0:}"
 		]
 	},
 	"ansout": {
 		"prefix": "ansout",
 		"body": [
-			"cout << ans << endl;",
-			"${0:}"
+			"cout << ans << endl;${0:}"
 		]
 	},
 	"arymax": {
 		"prefix": "arymax",
 		"body": [
 			"long long ${1:mx} = 0;",
-			"for (auto ${2:x} : ${3:a}) $1 = max($1, $2);",
-			"${0:}"
+			"for (auto ${2:x} : ${3:a}) $1 = max($1, $2);${0:}"
 		]
 	},
 	"arysum": {
 		"prefix": "arysum",
 		"body": [
 			"long long ${1:sum} = 0;",
-			"for (auto ${2:x} : ${3:a}) $1 += $2;",
-			"${0:}"
+			"for (auto ${2:x} : ${3:a}) $1 += $2;${0:}"
 		]
 	},
 	"vector": {
 		"prefix": "vector",
 		"body": [
-			"vector<${1:long long}> ${2:a}(${3:n});"
+			"vector<${1:long long}> ${2:a}(${3:n});${0:}"
 		]
 	},
 	"vecvec": {
 		"prefix": "vecvec",
 		"body": [
 			"vector<${1:long long}> ${2:a}(${3:n});",
-			"vector<${4:long long}> ${5:b}(${6:n});"
+			"vector<${4:long long}> ${5:b}(${6:n});${0:}"
 		]
 	},
 	"wvector": {
 		"prefix": "wvector",
 		"body": [
-			"vector<vector<${1:long long}>> ${2:NAME}(${3:n}, vector<$1>(${4:n}));"
+			"vector<vector<${1:long long}>> ${2:NAME}(${3:n}, vector<$1>(${4:n}));${0:}"
 		]
 	},
 	"graphv": {
@@ -292,15 +288,13 @@
 	"unique": {
 		"prefix": "unique",
 		"body": [
-			"a.erase(unique(a.begin(), a.end()), a.end());",
-			"$0"
+			"a.erase(unique(a.begin(), a.end()), a.end());$0"
 		]
 	},
 	"list": {
 		"prefix": "list",
 		"body": [
-			"list<${1:long long}> ${2:a};",
-			"$0"
+			"list<${1:long long}> ${2:a};$0"
 		]
 	},
 	"sort": {
@@ -312,15 +306,13 @@
 	"reverse": {
 		"prefix": "reverse",
 		"body": [
-			"reverse(${1:a}.begin(), $1.end());",
-			"$0"
+			"reverse(${1:a}.begin(), $1.end());$0"
 		]
 	},
 	"set": {
 		"prefix": "set",
 		"body": [
-			"set<${1:int}>${2:st};",
-			"$0"
+			"set<${1:int}>${2:st};$0"
 		]
 	},
 	"find": {
@@ -332,15 +324,13 @@
 	"setshow": {
 		"prefix": "setshow",
 		"body": [
-			"for (long long x: ${1:Name}) cout << x << \" \";",
-			"$0"
+			"for (long long x: ${1:Name}) cout << x << \" \";$0"
 		]
 	},
 	"map": {
 		"prefix": "map",
 		"body": [
-			"map<${1:long long}, ${2:long long}>${3:mp};",
-			"$0"
+			"map<${1:long long}, ${2:long long}>${3:mp};$0"
 		]
 	},
 	"pair": {
@@ -364,25 +354,25 @@
 	"pbk": {
 		"prefix": "pbk",
 		"body": [
-			"${1:a}.push_back(${2:n});${0}"
+			"${1:a}.push_back(${2:n});"
 		]
 	},
 	"que": {
 		"prefix": "que",
 		"body": [
-			"queue<${1:long long}> ${2:que};${0:}${0}"
+			"queue<${1:long long}> ${2:que};${0:}"
 		]
 	},
 	"pque": {
 		"prefix": "pque",
 		"body": [
-			"priority_queue<${1:long long}, vector<$1>> ${2:pq};${0:}${0}"
+			"priority_queue<${1:long long}, vector<$1>> ${2:pq};${0:}"
 		]
 	},
 	"pqueg": {
 		"prefix": "pqueg",
 		"body": [
-			"priority_queue<${1:long long}, vector<$1>, greater<$1>> ${2:pq};${0:}",
+			"priority_queue<${1:long long}, vector<$1>, greater<$1>> ${2:pq};${0:}"
 		]
 	},
 	"dque": {
@@ -435,8 +425,7 @@
 	"wdp": {
 		"prefix": "wdp",
 		"body": [
-			"vector<vector<${1:long long}>> dp(${2:n}, vector<$1>(${3:n}, 0));${0:}",
-			"${0:}"
+			"vector<vector<${1:long long}>> dp(${2:n}, vector<$1>(${3:n}, 0));${0:}"
 		]
 	},
 	"bfs": {
@@ -464,15 +453,13 @@
 		"prefix": "lbound",
 		"body": [
 			"auto itr = lower_bound(${1:a}.begin(), $1.end(), ${2:x});",
-		    "int ${3:idx} = distance($1.begin(), itr);${0:}",
-			"${0:}"
+		    "int ${3:idx} = distance($1.begin(), itr);${0:}"
 		]
 	},
 	"printf": {
 		"prefix": "printf",
 		"body": [
-            "printf(\"${1:}\", ${2:})",
-			"${0:}"
+            "printf(\"${1:}\", ${2:})${0:}"
 		]
 	},
 	"llprime": {

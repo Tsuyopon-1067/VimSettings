@@ -1,0 +1,17 @@
+{
+    "atmain": {
+        "prefix": "atmain",
+        "body": [
+            "package main",
+            "",
+            "import (",
+            "\t\"fmt\"",
+            ")",
+            "",
+            "func main() {",
+            "",
+            "}"
+        ]
+    }
+}
+
