@@ -9,8 +9,21 @@
             ")",
             "",
             "func main() {",
-            "",
+            "\t${0:}",
             "}"
+        ]
+    },
+    "atutil" : {
+        "prefix" : "atutil",
+        "body" : [
+            "func abs(x int64) int64 { if x >= 0 { return x } else { return -x } }",
+            "${0:}"
+        ]
+    },
+    "scanf" : {
+        "prefix" : "scanf",
+        "body" : [
+            "fmt.Scanf(\"${1:}\", &$2)${0:}"
         ]
     },
     "scanl" : {
@@ -31,28 +44,56 @@
         "prefix" : "scanlll",
         "body" : [
             "var ${1:a}, ${2:b}, ${3:c} int64",
-            "fmt.Scanf(\"%d %d\", &$1, &$2, &$3)${0:}"
+            "fmt.Scanf(\"%d %d %d\", &$1, &$2, &$3)${0:}"
         ]
     },
     "scanllll" : {
         "prefix" : "scanllll",
         "body" : [
             "var ${1:a}, ${2:b}, ${3:c}, ${4:d} int64",
-            "fmt.Scanf(\"%d %d\", &$1, &$2, &$3, &$4)${0:}"
+            "fmt.Scanf(\"%d %d %d %d\", &$1, &$2, &$3, &$4)${0:}"
         ]
     },
     "scanlllll" : {
         "prefix" : "scanlllll",
         "body" : [
             "var ${1:a}, ${2:b}, ${3:c}, ${4:d}, ${5:e} int64",
-            "fmt.Scanf(\"%d %d\", &$1, &$2, &$3, &$4, &$5)${0:}"
+            "fmt.Scanf(\"%d %d %d %d %d\", &$1, &$2, &$3, &$4, &$5)${0:}"
         ]
     },
     "scanllllll" : {
         "prefix" : "scanllllll",
         "body" : [
             "var ${1:a}, ${2:b}, ${3:c}, ${4:d}, ${5:e}, ${6:f} int64",
-            "fmt.Scanf(\"%d %d\", &$1, &$2, &$3, &$4, &$5, &$6)${0:}"
+            "fmt.Scanf(\"%d %d %d %d %d %d %d\", &$1, &$2, &$3, &$4, &$5, &$6)${0:}"
+        ]
+    },
+    "scand" : {
+        "prefix" : "scand",
+        "body" : [
+            "var ${1:x} float",
+            "fmt.Scanf(\"%d\", &$1)${0:}"
+        ]
+    },
+    "scandd" : {
+        "prefix" : "scandd",
+        "body" : [
+            "var ${1:x}, ${2:y} float",
+            "fmt.Scanf(\"%d %d\", &$1, &$2)${0:}"
+        ]
+    },
+    "scans" : {
+        "prefix" : "scans",
+        "body" : [
+            "var ${1:s} string",
+            "fmt.Scanf(\"%s\", &$1)${0:}"
+        ]
+    },
+    "scanss" : {
+        "prefix" : "scanss",
+        "body" : [
+            "var ${1:s}, ${2:t} string",
+            "fmt.Scanf(\"%s %s\", &$1, &$2)${0:}"
         ]
     },
     "print" : {
@@ -64,7 +105,7 @@
     "printf" : {
         "prefix" : "printf",
         "body" : [
-            "fmt.Printf(\"${1:}\")${0:}"
+            "fmt.Printf(\"${1:}\\n\"${2:})${0:}"
         ]
     },
     "println" : {
@@ -76,25 +117,31 @@
     "slice" : {
         "prefix" : "slice",
         "body" : [
-            "${1:a} := make([]${2:int64}, {${3:n}})${0}"
+            "${1:a} := make([]${2:int64}, ${3:n})${0}"
         ]
     },
-    "sorts" : {
-        "prefix" : "sorts",
+    "sort" : {
+        "prefix" : "sort",
         "body" : [
-            "sort.Strings(${1:a})${0:}"
+            "sort.Slice(${1:a}, func(i, j ${2:int}) bool {",
+            "\treturn $1[i] < $1[j]",
+            "})"
         ]
     },
-    "sortl" : {
-        "prefix" : "sortl",
+    "for" : {
+        "prefix" : "for",
         "body" : [
-            "sort.Ints(${1:a})${0:}"
+            "for ${1:i} := int64(0); $1 < ${2:n}; $1++ {",
+            "\t${0:}",
+            "}"
         ]
     },
-    "sortd" : {
-        "prefix" : "sortd",
+    "if" : {
+        "prefix" : "if",
         "body" : [
-            "sort.Float64s(${1:a})${0:}"
+            "if ${1:jouken} {",
+            "\t${0:}",
+            "}"
         ]
     }
 }
