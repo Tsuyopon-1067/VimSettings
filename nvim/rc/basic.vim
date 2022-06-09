@@ -57,7 +57,7 @@ set hlsearch
 nmap <Esc><Esc> :nohlsearch<CR><Esc>
 inoremap jk <ESC>
 " 折りたたみ
-set foldmethod=indent
+"set foldmethod=indent
 "--------------------------------------------------------------------------
 " カラースキーム
 colorscheme molokaiCG
