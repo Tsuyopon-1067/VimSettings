@@ -27,6 +27,9 @@ Jetpack 'nvim-lua/plenary.nvim' " lua関数
 Jetpack 'BurntSushi/ripgrep' " 現在の検索を再帰的に検索する行指向の検索ツール
 Jetpack 'zefei/vim-wintabs' " バッファをタブラインに表示
 Jetpack 'ray-x/lsp_signature.nvim' " シグネチャを表示
+if expand("%:e") == 'go'
+    Jetpack 'fatih/vim-go' " goフォーマッタ
+endif
 call jetpack#end()
 
 

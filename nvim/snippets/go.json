@@ -16,8 +16,64 @@
     "atutil" : {
         "prefix" : "atutil",
         "body" : [
+            "package main",
+            "",
+            "import (",
+            "\t\"fmt\"",
+            ")",
+            "",
+            "const INFL = 9000000000000000000",
+            "func chmin(a *int64, b int64) (res bool) { if res = *a > b; res { *a = b }; return }",
+            "func chmax(a *int64, b int64) (res bool) { if res = *a < b; res { *a = b }; return }",
             "func abs(x int64) int64 { if x >= 0 { return x } else { return -x } }",
-            "${0:}"
+            "",
+            "func main() {",
+            "\t${0:}",
+            "}"
+        ]
+    },
+    "atutilr" : {
+        "prefix" : "atutilr",
+        "body" : [
+            "package main",
+            "",
+            "import (",
+            "\"fmt\"",
+            "\"bufio\"",
+            "\"os\"",
+            "\"strings\"",
+            "\"strconv\"",
+            ")",
+            "",
+            "const INFL = 9000000000000000000",
+            "const BUFSIZE = 10000000",
+            "var rdr *bufio.Reader",
+            "func chmin(a *int64, b int64) (res bool) { if res = *a > b; res { *a = b }; return }",
+            "func chmax(a *int64, b int64) (res bool) { if res = *a < b; res { *a = b }; return }",
+            "func abs(x int64) int64 { if x >= 0 { return x } else { return -x } }",
+            "",
+            "func main() {",
+            "\trdr = bufio.NewReaderSize(os.Stdin, BUFSIZE)",
+            "\t${0:}",
+            "}",
+            "func readline() string { buf := make([]byte, 0, 16); for { l, p, e := rdr.ReadLine(); if e != nil { fmt.Println(e.Error()); panic(e) }; buf = append(buf, l...); if !p { break } }; return string(buf) }",
+            "func readIntSlice() []int64 { slice := make([]int64, 0); lines := strings.Split(readline(), \" \"); for _, v := range lines { slice = append(slice, s2i(v)) }; return slice; }",
+            "func s2i(s string) int64 { v, ok := strconv.Atoi(s); if ok != nil { panic(\"Faild : \" + s + \" can't convert to int\") }; return int64(v) }",
+            "func readint() int64 { return s2i(readline()) }",
+            "func readint2() (int64, int64) { lines := strings.Split(readline(), \" \"); return s2i(lines[0]), s2i(lines[1]) }",
+            "func readint3() (int64, int64, int64) { lines := strings.Split(readline(), \" \"); return s2i(lines[0]), s2i(lines[1]), s2i(lines[2]) }"
+        ]
+    },
+    "int" : {
+        "prefix" : "int",
+        "body" : [
+            "var ${1:a} int64${0:}"
+        ]
+    },
+    "string" : {
+        "prefix" : "string",
+        "body" : [
+            "var ${1:s} string${0:}"
         ]
     },
     "scanf" : {
@@ -38,6 +94,13 @@
         "body" : [
             "var ${1:x}, ${2:y} int64",
             "fmt.Scanf(\"%d %d\", &$1, &$2)${0:}"
+        ]
+    },
+    "scanhw" : {
+        "prefix" : "scanhw",
+        "body" : [
+            "var h, w int64",
+            "fmt.Scanf(\"%d %d\", &h, &w)${0:}"
         ]
     },
     "scanlll" : {
@@ -120,12 +183,60 @@
             "${1:a} := make([]${2:int64}, ${3:n})${0}"
         ]
     },
+    "wslice" : {
+        "prefix" : "wslice",
+        "body" : [
+            "${1:a} := make([][]${2:int64}, ${3:h})",
+            "for ${4:i} := int64(0); $4 < $3; $4++ {",
+            "\t$1[$4] = make([]$2, ${5:w})",
+            "}${0:}"
+        ]
+    },
+    "aryin" : {
+        "prefix" : "aryin",
+        "body" : [
+            "for ${1:i}, _ := range ${2:a} {",
+            "    fmt.Scanf(\"%d\", &$2[$1])",
+            "}"
+        ]
+    },
+    "waryin" : {
+        "prefix" : "waryin",
+        "body" : [
+            "for ${1:i} := int64(0); $1 < ${3:h}; $1++ {",
+            "\tfor ${2:j} := int64(0); $2 < ${4:w}; $2++ {",
+            "\tfmt.Scanf(\"%d\", &${5:a}[$1][$2])",
+            "\t}",
+            "}"
+        ]
+    },
+    "aryout" : {
+        "prefix" : "aryout",
+        "body" : [
+            "for _, ${1:x} := range ${2:a} {",
+            "\tfmt.Printf(\"%d \", $1)",
+            "}",
+            "fmt.Printf(\"\\n\")"
+        ]
+    },
     "sort" : {
         "prefix" : "sort",
         "body" : [
             "sort.Slice(${1:a}, func(i, j ${2:int}) bool {",
             "\treturn $1[i] < $1[j]",
             "})"
+        ]
+    },
+    "map" : {
+        "prefix" : "map",
+        "body" : [
+            "${1:mp} := make(map[${2:int64}]${3:int64})${0}"
+        ]
+    },
+    "set" : {
+        "prefix" : "set",
+        "body" : [
+            "${1:st} := make(map[${2:int64}]bool)${0}"
         ]
     },
     "for" : {
@@ -136,12 +247,55 @@
             "}"
         ]
     },
+    "fore" : {
+        "prefix" : "fore",
+        "body" : [
+            "for ${1:i}, ${2:v} := range ${3:a} {",
+            "\t${0:}",
+            "}"
+        ]
+    },
+    "while" : {
+        "prefix" : "while",
+        "body" : [
+            "for ${1:condition} {",
+            "\t${0:}",
+            "}"
+        ]
+    },
     "if" : {
         "prefix" : "if",
         "body" : [
             "if ${1:jouken} {",
             "\t${0:}",
             "}"
+        ]
+    },
+    "switch" : {
+        "prefix" : "switch",
+        "body" : [
+            "switch ${1:n} {",
+            "\tcase ${2:1}:",
+            "\t\t${0:}",
+            "}"
+        ]
+    },
+    "ansy" : {
+        "prefix" : "ansy",
+        "body" : [
+            "ans = \"Yes\"${0:}"
+        ]
+    },
+    "ansn" : {
+        "prefix" : "ansn",
+        "body" : [
+            "ans = \"No\"${0:}"
+        ]
+    },
+    "swap" : {
+        "prefix" : "swap",
+        "body" : [
+            "${1:a}, ${2:b} = $2, $1${0:}"
         ]
     }
 }
