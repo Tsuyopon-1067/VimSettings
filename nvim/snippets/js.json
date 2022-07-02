@@ -1,0 +1,19 @@
+{
+    "div": {
+        "prefix": "div",
+        "body": [
+            "<div>",
+            "\t${0:}",
+            "</div>"
+        ]
+    },
+    "divc": {
+        "prefix": "divc",
+        "body": [
+            "<div className=\"{$1:name}\">",
+            "\t${0:}",
+            "</div>"
+        ]
+    }
+}
+

@@ -1,0 +1,25 @@
+{
+    "div": {
+        "prefix": "div",
+        "body": [
+            "<div>",
+            "\t${0:}",
+            "</div>"
+        ]
+    },
+    "divc": {
+        "prefix": "divc",
+        "body": [
+            "<div className=\"{$1:name}\">",
+            "\t${0:}",
+            "</div>"
+        ]
+    },
+    "css": {
+        "prefix": "css",
+        "body": [
+            "<link rel=\"stylesheet\" href=\"${1:style.css}\">${0:}"
+        ]
+    }
+}
+
