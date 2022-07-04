@@ -1,25 +1,14 @@
 package main
 
 import (
-    "fmt"
+	"sort"
 )
 
 func main() {
-    a := make([]int, 0)
-    a = append(a, 1)
-    a = append(a, 2)
-    for i := 2; i < 6; i++ {
-        a = append(a, a[i-1]+a[i-2])
-    }
-    fmt.Println(a)
-    fmt.Println(len(a))
-
-    for i := 0; i < 30; i++ {
-        //fmt.Println(i, lower_bound(a, i))
-    }
-    for i := 0; i < 30; i++ {
-        fmt.Println(i, upper_bound(a, i))
-    }
+    a := make([]Point, 3)
+    sort.Slice(a, func(i, j int) bool {
+        return compareToPoint(a[i], a[j]) > 0
+    })
 }
 func lower_bound(a []int, x int) int {
     ng := -1
@@ -71,3 +60,7 @@ func upper_bound(a []int, x int) int {
         }
     }
 }
+
+type Point struct {x,y int}
+func compareToPoint(l, r Point)(res int){res = 0;if l.x<r.x{res=1}else if l.x>r.x{res=-1}else{if l.y<r.y{res=1}else if l.y>r.y{res=-1}};return res}
+func lower_boundPoint(a []Point, x Point)int{ng:=-1;ok:=len(a);for{m:=(ok+ng)/2;if compareToPoint(a[m],x)<=0 {ok=m}else{ng=m};sa:=ok-ng;if sa<0 {sa=-sa};if sa<=1{res:=-1;if 0<= ok&&ok<len(a){if compareToPoint(a[ok],x)<=0 {res=ok}};return res}}}
