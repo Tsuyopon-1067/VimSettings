@@ -1,7 +1,8 @@
 package main
 
 import (
-	"sort"
+    "fmt"
+    "sort"
 )
 
 func main() {
@@ -9,6 +10,7 @@ func main() {
     sort.Slice(a, func(i, j int) bool {
         return compareToPoint(a[i], a[j]) > 0
     })
+    fmt.Println("hello")
 }
 func lower_bound(a []int, x int) int {
     ng := -1
@@ -59,6 +61,11 @@ func upper_bound(a []int, x int) int {
             return res
         }
     }
+}
+func distance2 (p, q Point) int {
+    dx := p.x - q.x
+    dy := p.y - q.y
+    return dx*dx + dy*dy
 }
 
 type Point struct {x,y int}
